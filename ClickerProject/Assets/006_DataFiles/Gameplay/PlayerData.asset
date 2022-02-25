@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e931272901e194d41815b2416d8df279, type: 3}
-  m_Name: EnemiesNicknamesData
+  m_Script: {fileID: 11500000, guid: db568907f7ffc1c459c327d6440f4ee7, type: 3}
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
-  possiblesNames:
-  - Le faible
-  - Le hargneux
-  - Le terrible
-  - Le puissant
-  - L'insondable
-  - Le peureux
+  baseDamagePerClick: 1
+  basePowerObtainedPerClick: 1
+  baseGoldObtainedPerClick: 1
+  baseCandiesObtainedPerClick: 1

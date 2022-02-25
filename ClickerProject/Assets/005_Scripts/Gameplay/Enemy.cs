@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
 
     public Canvas LocalCanvas => localCanvas;
 
+    public EnemyData currentEnemyData { get; protected set; }
+
     #endregion
 
     #region UnityInspector
@@ -40,24 +42,31 @@ public class Enemy : MonoBehaviour
 
     #region Behaviour
 
-    private void Start()
+    public void SetEnemy(EnemyData infos)
     {
-        UpdateName();
-        UpdateLife();
-    }
+        currentEnemyData = infos;
 
-    public void SetMonster(EnemyData infos)
-    {
         lifeMax = infos.startLife;
         life = lifeMax;
 
         visual.GetComponent<SpriteRenderer>().sprite = infos.sprite;
 
-        int rndName = Random.Range(0, infos.listNames.possiblesNames.Count);
+        int rndName = 0;
+        while(infos.listNames.possiblesNames[rndName] == enemyName)
+        {
+            rndName = Random.Range(0, infos.listNames.possiblesNames.Count);
+        }
         enemyName = infos.listNames.possiblesNames[rndName];
 
-        int rndNickname = Random.Range(0, infos.listNicknames.possiblesNames.Count);
+        int rndNickname = 0;
+        while(infos.listNicknames.possiblesNames[rndNickname] == enemyNickname)
+        {
+            rndNickname = Random.Range(0, infos.listNicknames.possiblesNames.Count);
+        }
         enemyNickname = infos.listNicknames.possiblesNames[rndNickname];
+
+        UpdateName();
+        UpdateLife();
     }
 
     public void TakeDamage(int _amount)

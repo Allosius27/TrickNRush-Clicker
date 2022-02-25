@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e931272901e194d41815b2416d8df279, type: 3}
-  m_Name: EnemiesNicknamesData
+  m_Script: {fileID: 11500000, guid: 0d21bc2b5c4fb724e83562932be6c9ba, type: 3}
+  m_Name: MagHoul CharacterData
   m_EditorClassIdentifier: 
-  possiblesNames:
-  - Le faible
-  - Le hargneux
-  - Le terrible
-  - Le puissant
-  - L'insondable
-  - Le peureux
+  characterName: Mag'Houl
+  portraitSprite: {fileID: 6265718040352922081, guid: b60d6049796f6d844b8d715cb120cb30, type: 3}
+  maxPowerValue: 50
