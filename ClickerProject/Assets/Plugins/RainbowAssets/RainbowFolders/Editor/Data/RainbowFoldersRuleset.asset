@@ -141,7 +141,7 @@ MonoBehaviour:
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 180
+    BackgroundType: 190
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
     IsHidden: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 80
+    BackgroundType: 90
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
     IsHidden: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
     Key: Assets/002_AudioResources
     Ordinal: 28
     Priority: 0
-    IconType: 2520
+    IconType: 50
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
@@ -365,11 +365,11 @@ MonoBehaviour:
     Key: Assets/003_Animations
     Ordinal: 29
     Priority: 0
-    IconType: 2510
+    IconType: 130
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 120
+    BackgroundType: 130
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
     IsHidden: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
     Key: Assets/004_Prefabs
     Ordinal: 30
     Priority: 0
-    IconType: 2610
+    IconType: 150
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
@@ -389,11 +389,11 @@ MonoBehaviour:
     Key: Assets/005_Scripts
     Ordinal: 31
     Priority: 0
-    IconType: 2660
+    IconType: 180
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 160
+    BackgroundType: 170
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
     IsHidden: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
     Key: Assets/006_DataFiles
     Ordinal: 32
     Priority: 0
-    IconType: 2540
+    IconType: 10
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
@@ -441,7 +441,7 @@ MonoBehaviour:
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 1
-    BackgroundType: 160
+    BackgroundType: 150
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 1
     IsHidden: 0
