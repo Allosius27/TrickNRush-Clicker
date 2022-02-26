@@ -25,6 +25,12 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 
     [SerializeField] private List<CharacterPortrait> charactersPortraits = new List<CharacterPortrait>();
 
+    [Space]
+
+    [SerializeField] private List<CharacterUpgrade> characterUpgrades = new List<CharacterUpgrade>();
+    [SerializeField] private GameObject prefabUpgradeUi;
+    [SerializeField] private Transform parentCharactersUpgrades;
+
     #endregion
 
     #region Behaviour
@@ -32,6 +38,13 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
     private void Start()
     {
         ChangeCharacterSelected(charactersPortraits[0]);
+
+        for(int i = 0; i < characterUpgrades.Count; i++)
+        {
+            GameObject upgradeInstance = Instantiate(prefabUpgradeUi, parentCharactersUpgrades, false);
+            upgradeInstance.transform.localPosition = Vector3.zero;
+            upgradeInstance.GetComponent<CharacterUpgradeUI>().Initialize(characterUpgrades[i], charactersPortraits[i]);
+        }
     }
 
     public void ChangeCharacterSelected(CharacterPortrait character)

@@ -14,6 +14,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     [SerializeField] private List<CharacterData> characters = new List<CharacterData>();
 
+    [SerializeField] private PlayerData playerData;
+
     #endregion
 
     #region Behaviour
@@ -29,7 +31,16 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         for (int i = 0; i < characters.Count; i++)
         {
             GUIManager.Instance.CharactersPortraits[i].InitCharacterData(characters[i]);
+            LoadPlayerData(GUIManager.Instance.CharactersPortraits[i]);
         }
+    }
+
+    private void LoadPlayerData(CharacterPortrait character)
+    {
+        character.currentDamagePerClick = playerData.baseDamagePerClick;
+        character.currentPowerObtainedPerClick = playerData.basePowerObtainedPerClick;
+        character.currentGoldObtainedPerClick = playerData.baseGoldObtainedPerClick;
+        character.currentCandiesObtainedPerClick = playerData.baseCandiesObtainedPerClick;
     }
 
     #endregion

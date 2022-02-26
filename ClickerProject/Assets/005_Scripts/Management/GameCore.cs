@@ -8,14 +8,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 {
     #region Fields
 
-    private int currentDamagePerClick = 1;
-
-    private int currentPowerObtainedPerClick = 1;
-
     private float timerAutoDamage;
-
-    private int currentGoldObtainedPerClick = 1;
-    private int currentCandiesObtainedPerClick = 1;
 
     private int currentGold;
     private int currentCandies;
@@ -37,10 +30,6 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     [SerializeField] private List<EnemyData> typesEnemies = new List<EnemyData>();
 
-    [Space]
-
-    [SerializeField] private PlayerData playerData;
-
     #endregion
 
     #region Behaviour
@@ -52,8 +41,6 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     private void Start()
     {
-        LoadPlayerData();
-
         UpdateCandiesUI();
         UpdateGoldUI();
 
@@ -73,10 +60,10 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
             {
                 Debug.Log(hit.collider.name);
 
-                Enemy monster = hit.collider.GetComponent<Enemy>();
-                if (monster != null)
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    Hit(currentDamagePerClick, monster);
+                    Hit(PlayersController.Instance.currentCharacterSelected.currentDamagePerClick, enemy);
                 }
             }
         }
@@ -87,41 +74,39 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         {
             timerAutoDamage = 0.0f;
             
-            // HIT Auto Upgrades
+            foreach(var IA in GUIManager.Instance.CharactersPortraits)
+            {
+                if(IA != PlayersController.Instance.currentCharacterSelected)
+                {
+                    Hit(IA.currentDamagePerClick, EntitiesManager.Instance.Enemy);
+                }
+            }
         }
     }
 
-    private void LoadPlayerData()
-    {
-        currentDamagePerClick = playerData.baseDamagePerClick;
-        currentPowerObtainedPerClick = playerData.basePowerObtainedPerClick;
-        currentGoldObtainedPerClick = playerData.baseGoldObtainedPerClick;
-        currentCandiesObtainedPerClick = playerData.baseCandiesObtainedPerClick;
-    }
-
-    private void Hit(int damage, Enemy enemy)
+    public void Hit(int damage, Enemy enemy)
     {
         enemy.TakeDamage(damage);
         GameObject feedback = Instantiate(prefabHitPoint, enemy.LocalCanvas.transform, false);
         feedback.transform.localPosition = Vector3.zero;
-        feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 5;
+        feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 250;
         feedback.transform.DOLocalMoveY(500f, 0.8f);
         feedback.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
         feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 0.8f);
         Destroy(feedback, 1f);
 
-        ChangeCandiesAmount(currentCandiesObtainedPerClick);
-        PlayersController.Instance.currentCharacterSelected.ChangePowerBarValue(currentPowerObtainedPerClick);
+        ChangeCandiesAmount((int)(PlayersController.Instance.currentCharacterSelected.currentCandiesObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusCandiesObtained));
+        PlayersController.Instance.currentCharacterSelected.ChangePowerBarValue(PlayersController.Instance.currentCharacterSelected.currentPowerObtainedPerClick);
 
         if (enemy.IsAlive() == false)
         {
-            ChangeGoldAmount(currentGoldObtainedPerClick);
+            ChangeGoldAmount((int)(PlayersController.Instance.currentCharacterSelected.currentGoldObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusGoldObtained));
 
             NewMonster();
         }
     }
 
-    private void ChangeGoldAmount(int _amount)
+    public void ChangeGoldAmount(int _amount)
     {
         currentGold += _amount;
         UpdateGoldUI();
@@ -132,7 +117,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         GUIManager.Instance.GoldUI.GetComponent<TextMeshProUGUI>().text = currentGold.ToString();
     }
 
-    private void ChangeCandiesAmount(int _amount)
+    public void ChangeCandiesAmount(int _amount)
     {
         currentCandies += _amount;
         UpdateCandiesUI();

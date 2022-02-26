@@ -19,6 +19,23 @@ public class CharacterPortrait : MonoBehaviour
 
     public CharacterData characterData { get; protected set; }
 
+
+    public float MaxPowerValue => maxPowerValue;
+
+    public float defaultCurrentBonusCandiesObtained { get; set; }
+    public float defaultCurrentBonusGoldObtained { get; set; }
+
+    public float currentBonusGoldObtained { get; set; }
+    public float currentBonusCandiesObtained { get; set; }
+
+    public int currentDamagePerClick { get; set; }
+
+    public int currentPowerObtainedPerClick { get; set; }
+
+    public int currentGoldObtainedPerClick { get; set; }
+
+    public int currentCandiesObtainedPerClick { get; set; }
+
     #endregion
 
     #region UnityInspector
@@ -44,6 +61,15 @@ public class CharacterPortrait : MonoBehaviour
 
     #region Behaviour
 
+    private void Start()
+    {
+        defaultCurrentBonusCandiesObtained = 1;
+        defaultCurrentBonusGoldObtained = 1;
+
+        currentBonusCandiesObtained = 1;
+        currentBonusGoldObtained = 1;
+    }
+
     public void InitCharacterData(CharacterData _characterData)
     {
         characterData = _characterData;
@@ -55,6 +81,14 @@ public class CharacterPortrait : MonoBehaviour
         maxPowerValue = _characterData.maxPowerValue;
         powerBar.maxValue = maxPowerValue;
         UpdatePowerBar();
+    }
+
+    public void LaunchAbility()
+    {
+        characterData.specialAbility.Attack();
+
+        characterData.specialAbility.ApplySpecialEffect(this);
+        StartCoroutine(characterData.specialAbility.SpecialEffectDuration(this));
     }
 
     public void ChangeCharacterControlled()
@@ -97,9 +131,11 @@ public class CharacterPortrait : MonoBehaviour
     {
         if (canUsePower)
         {
+            Debug.Log(gameObject.name + " Use Power");
+
             ChangePowerBarValue(-powerValue);
 
-            Debug.Log(gameObject.name + " Use Power");
+            LaunchAbility();
         }
     }
 

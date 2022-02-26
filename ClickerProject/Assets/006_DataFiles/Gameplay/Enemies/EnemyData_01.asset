@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listNames: {fileID: 11400000, guid: da78c9ecd44a3de4f95f0d47142b75d2, type: 2}
   listNicknames: {fileID: 11400000, guid: 92e8777ecf30eac47938a45968367291, type: 2}
-  startLife: 10
+  startLife: 100
   sprite: {fileID: -4563256353861090936, guid: b60d6049796f6d844b8d715cb120cb30, type: 3}

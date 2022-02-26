@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
 
     #region Properties
 
+    public int Life => life;
+
+    public int LifeMax => lifeMax;
+
     public Canvas LocalCanvas => localCanvas;
 
     public EnemyData currentEnemyData { get; protected set; }
@@ -72,6 +76,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int _amount)
     {
         life -= _amount;
+
+        if(life <= 0)
+        {
+            life = 0;
+        }
 
         visual.transform.DOComplete();
         visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f);

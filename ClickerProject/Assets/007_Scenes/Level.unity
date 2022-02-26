@@ -431,9 +431,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &96699287
 MonoBehaviour:
@@ -1825,18 +1825,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1704772954}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 4
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 659214659}
   m_HorizontalScrollbar: {fileID: 96699287}
   m_VerticalScrollbar: {fileID: 1000355875}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
@@ -1923,11 +1923,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45a65529113c294ea2c7207adc3f825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPersistant: 0
   characters:
   - {fileID: 11400000, guid: 19c99bda8c81a374fbb352add5f67813, type: 2}
   - {fileID: 11400000, guid: 845749c396d8647429a74a6cc5322994, type: 2}
   - {fileID: 11400000, guid: 1fc7054d2f6c55247a5c0fae4ab36214, type: 2}
   - {fileID: 11400000, guid: aa531d3ccf260614a8e7d6f6ec52f90c, type: 2}
+  playerData: {fileID: 11400000, guid: c6e9fb6d32645e843b7560154e2d77f6, type: 2}
 --- !u!1 &1262369146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -16, y: 58}
+  m_AnchoredPosition: {x: -16, y: 75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697320811
@@ -2942,6 +2944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704772954}
+  - component: {fileID: 1704772955}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -2968,6 +2971,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.00008909145}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1704772955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704772953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 43
+    m_Right: 0
+    m_Top: 40
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 32
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1712186001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +3050,13 @@ MonoBehaviour:
   - {fileID: 1045002678}
   - {fileID: 688554766}
   - {fileID: 1287503580}
+  characterUpgrades:
+  - {fileID: 11400000, guid: b52eeac05c3c3bb4abdc2007ddb99425, type: 2}
+  - {fileID: 11400000, guid: 2710b079f7587934081573103c763ebf, type: 2}
+  - {fileID: 11400000, guid: 9f761cde796b33844992bb8811b71111, type: 2}
+  - {fileID: 11400000, guid: 0d0117c8ac4491343a063cb2a289be40, type: 2}
+  prefabUpgradeUi: {fileID: 7076848449967809506, guid: 622f57a27317ee1499fdb4fb734304e1, type: 3}
+  parentCharactersUpgrades: {fileID: 1704772954}
 --- !u!1 &1726076774
 GameObject:
   m_ObjectHideFlags: 0

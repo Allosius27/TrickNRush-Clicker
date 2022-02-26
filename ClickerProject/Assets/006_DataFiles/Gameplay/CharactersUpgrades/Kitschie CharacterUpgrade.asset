@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1621eac5e4c36e249a4a1af46a0801b9, type: 3}
+  m_Name: Kitschie CharacterUpgrade
+  m_EditorClassIdentifier: 
+  upgradeName: Kitschie
+  descriptions:
+  - 'Attaque : 1'
+  - "Co\xFBt Comp\xE9tence Rush : 50"
+  sprite: {fileID: -5194626031477277102, guid: b60d6049796f6d844b8d715cb120cb30, type: 3}
+  cost: 30
