@@ -8,8 +8,6 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 {
     #region Fields
 
-    private float timerAutoDamage;
-
     private int currentGold;
     private int currentCandies;
 
@@ -68,20 +66,18 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
             }
         }
 
-        timerAutoDamage += Time.deltaTime;
+        
+    }
 
-        if (timerAutoDamage >= 1.0f)
-        {
-            timerAutoDamage = 0.0f;
-            
-            foreach(var IA in GUIManager.Instance.CharactersPortraits)
-            {
-                if(IA != PlayersController.Instance.currentCharacterSelected)
-                {
-                    Hit(IA.currentDamagePerClick, EntitiesManager.Instance.Enemy);
-                }
-            }
-        }
+    public void AddCharacterUpgrade(CharacterUpgrade upgrade, CharacterPortrait character)
+    {
+        Debug.Log("Add Character Upgrade");
+
+        character.currentDamagePerClick += upgrade.AttackPerClickModifier;
+        character.currentIntervalAutoClick = upgrade.AutoClickInterval;
+        character.currentPowerObtainedPerClick += upgrade.PowerObtainedPerClickModifier;
+
+        ChangeCandiesAmount(-upgrade.Cost);
     }
 
     public void Hit(int damage, Enemy enemy)

@@ -33,14 +33,27 @@ public class CharacterUpgradeUI : MonoBehaviour
     public void Initialize(CharacterUpgrade _upgrade, CharacterPortrait _character)
     {
         characterUpgrade = _upgrade;
+
         characterPortrait = _character;
 
-        portrait.sprite = characterUpgrade.Sprite;
-        textName.text = _character.name;
-        attackDescription.text = "Attaque : " + _character.currentDamagePerClick;
-        powerCostDescription.text = "Coût Compétence Rush : " + _character.MaxPowerValue;
+        portrait.sprite = characterPortrait.characterData.portraitSprite;
+        textName.text = characterPortrait.name;
+        attackDescription.text = "Attaque : " + characterPortrait.currentDamagePerClick;
+        powerCostDescription.text = "Coût Compétence Rush : " + characterPortrait.MaxPowerValue;
+        
         textCost.text = characterUpgrade.Cost.ToString();
+
         textLevel.text = "Niveau " + level.ToString();
+    }
+
+    public void OnClick()
+    {
+        if(GameCore.Instance.CurrentGold >= characterUpgrade.Cost)
+        {
+            Debug.Log("Buy Upgrade");
+
+            GameCore.Instance.AddCharacterUpgrade(characterUpgrade, characterPortrait);
+        }
     }
 
     #endregion

@@ -13,6 +13,8 @@ public class CharacterPortrait : MonoBehaviour
 
     private bool canUsePower;
 
+    private float timerAutoDamage;
+
     #endregion
 
     #region Properties
@@ -35,6 +37,9 @@ public class CharacterPortrait : MonoBehaviour
     public int currentGoldObtainedPerClick { get; set; }
 
     public int currentCandiesObtainedPerClick { get; set; }
+
+
+    public float currentIntervalAutoClick { get; set; }
 
     #endregion
 
@@ -68,6 +73,29 @@ public class CharacterPortrait : MonoBehaviour
 
         currentBonusCandiesObtained = 1;
         currentBonusGoldObtained = 1;
+
+        currentIntervalAutoClick = 1.0f;
+    }
+
+    private void Update()
+    {
+        AutoClick();
+    }
+
+    public void AutoClick()
+    {
+        timerAutoDamage += Time.deltaTime;
+
+        if (timerAutoDamage >= currentIntervalAutoClick)
+        {
+            timerAutoDamage = 0.0f;
+
+            if (this != PlayersController.Instance.currentCharacterSelected)
+            {
+                Debug.Log(name + " Auto attacks !");
+                GameCore.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy);
+            }
+        }
     }
 
     public void InitCharacterData(CharacterData _characterData)

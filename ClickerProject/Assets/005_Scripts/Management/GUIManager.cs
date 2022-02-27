@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class GUIManager : AllosiusDev.Singleton<GUIManager>
 {
+    #region Fields
+
+    
+
+    #endregion
+
     #region Properties
 
     public GameObject GoldUI => goldUi;
