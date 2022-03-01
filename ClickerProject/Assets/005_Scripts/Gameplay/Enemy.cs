@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     private string enemyName;
     private string enemyNickname;
 
+    private List<string> possiblesNames = new List<string>();
+    private List<string> possiblesNicknames = new List<string>();
+
     #endregion
 
     #region Properties
@@ -49,25 +52,40 @@ public class Enemy : MonoBehaviour
     public void SetEnemy(EnemyData infos)
     {
         currentEnemyData = infos;
+        possiblesNames.Clear();
+        possiblesNicknames.Clear();
 
-        lifeMax = infos.startLife;
+        for (int i = 0; i < currentEnemyData.listNames.possiblesNames.Count; i++)
+        {
+            possiblesNames.Add(currentEnemyData.listNames.possiblesNames[i]);
+        }
+        for (int i = 0; i < currentEnemyData.listNicknames.possiblesNames.Count; i++)
+        {
+            possiblesNicknames.Add(currentEnemyData.listNicknames.possiblesNames[i]);
+        }
+
+        lifeMax = currentEnemyData.startLife;
         life = lifeMax;
 
-        visual.GetComponent<SpriteRenderer>().sprite = infos.sprite;
+        visual.GetComponent<SpriteRenderer>().sprite = currentEnemyData.sprite;
 
         int rndName = 0;
-        while(infos.listNames.possiblesNames[rndName] == enemyName)
+        while(possiblesNames[rndName] == enemyName)
         {
-            rndName = Random.Range(0, infos.listNames.possiblesNames.Count);
+            //rndName = Random.Range(0, infos.listNames.possiblesNames.Count);
+            rndName = IntUtil.Random(0, possiblesNames.Count);
         }
-        enemyName = infos.listNames.possiblesNames[rndName];
+        enemyName = possiblesNames[rndName];
+        possiblesNames = IntUtil.RandomizeList(possiblesNames);
 
         int rndNickname = 0;
-        while(infos.listNicknames.possiblesNames[rndNickname] == enemyNickname)
+        while(possiblesNicknames[rndNickname] == enemyNickname)
         {
-            rndNickname = Random.Range(0, infos.listNicknames.possiblesNames.Count);
+            //rndNickname = Random.Range(0, infos.listNicknames.possiblesNames.Count);
+            rndNickname = IntUtil.Random(0, possiblesNicknames.Count);
         }
-        enemyNickname = infos.listNicknames.possiblesNames[rndNickname];
+        enemyNickname = possiblesNicknames[rndNickname];
+        possiblesNicknames = IntUtil.RandomizeList(possiblesNicknames);
 
         UpdateName();
         UpdateLife();

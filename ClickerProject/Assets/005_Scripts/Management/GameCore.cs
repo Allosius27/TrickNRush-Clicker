@@ -44,7 +44,11 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
         NewMonster();
 
-        // Add Upgrade To Buy on Screen
+        /*for (var i = 0; i < 1000; i++)
+        {
+            int randomNumber = IntUtil.Random(1, 100);
+            Debug.Log(randomNumber);
+        }*/
     }
 
     void Update()
@@ -66,7 +70,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
             }
         }
 
-        
+
     }
 
     public void AddCharacterUpgrade(CharacterUpgrade upgrade, CharacterPortrait character)
@@ -130,15 +134,19 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     private void NewMonster()
     {
         int _currentMonster = 0;
-        if(typesEnemies.Count > 1)
+        if (typesEnemies.Count > 1)
         {
-            while(typesEnemies[_currentMonster] == EntitiesManager.Instance.Enemy.currentEnemyData)
+            while (typesEnemies[_currentMonster] == EntitiesManager.Instance.Enemy.currentEnemyData)
             {
-                _currentMonster = Random.Range(0, typesEnemies.Count);
+                //_currentMonster = Random.Range(0, typesEnemies.Count);
+                _currentMonster = IntUtil.Random(0, typesEnemies.Count);
             }
+
+            typesEnemies = IntUtil.RandomizeList(typesEnemies);
         }
         EntitiesManager.Instance.Enemy.SetEnemy(typesEnemies[_currentMonster]);
     }
 
+    
     #endregion
 }

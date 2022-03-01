@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: EnemiesNicknamesData
   m_EditorClassIdentifier: 
   possiblesNames:
-  - Le faible
-  - Le hargneux
-  - Le terrible
   - Le puissant
-  - L'insondable
   - Le peureux
+  - Le terrible
+  - L'idiot

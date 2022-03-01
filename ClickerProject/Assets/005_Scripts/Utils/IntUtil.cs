@@ -23,5 +23,17 @@ public static class IntUtil
         return random.Next(min, max);
     }
 
+    public static List<T> RandomizeList<T>(List<T> list)
+    {
+        List<T> randomizedList = new List<T>(); 
+        while (list.Count > 0)
+        {
+            int index = Random(0, list.Count); //pick a random item from the master list
+            randomizedList.Add(list[index]); //place it at the end of the randomized list
+            list.RemoveAt(index); 
+        } 
+        return randomizedList;
+    }
+
     #endregion
 }
