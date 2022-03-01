@@ -33,7 +33,7 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 
     [Space]
 
-    [SerializeField] private List<CharacterUpgrade> characterUpgrades = new List<CharacterUpgrade>();
+    [SerializeField] private List<CharacterUpgradeData> characterUpgrades = new List<CharacterUpgradeData>();
     [SerializeField] private GameObject prefabUpgradeUi;
     [SerializeField] private Transform parentCharactersUpgrades;
 

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1621eac5e4c36e249a4a1af46a0801b9, type: 3}
   m_Name: MagHoul CharacterUpgrade
   m_EditorClassIdentifier: 
-  cost: 30
-  attackPerClickModifier: 2
-  autoClickInterval: 1
-  powerObtainedPerClickModifier: 2
+  listCharacterUpgradesToUnlock:
+  - cost: 30
+    attackPerClickModifier: 2
+    autoClickInterval: 1
+    powerObtainedPerClickModifier: 2

@@ -61,7 +61,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    Hit(PlayersController.Instance.currentCharacterSelected.currentDamagePerClick, enemy);
+                    Hit(PlayersController.Instance.currentCharacterSelected.currentDamagePerClick, enemy, true);
                 }
             }
         }
@@ -80,7 +80,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         ChangeCandiesAmount(-upgrade.Cost);
     }
 
-    public void Hit(int damage, Enemy enemy)
+    public void Hit(int damage, Enemy enemy, bool isCharacterControlled)
     {
         enemy.TakeDamage(damage);
         GameObject feedback = Instantiate(prefabHitPoint, enemy.LocalCanvas.transform, false);
@@ -91,8 +91,11 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 0.8f);
         Destroy(feedback, 1f);
 
-        ChangeCandiesAmount((int)(PlayersController.Instance.currentCharacterSelected.currentCandiesObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusCandiesObtained));
-        PlayersController.Instance.currentCharacterSelected.ChangePowerBarValue(PlayersController.Instance.currentCharacterSelected.currentPowerObtainedPerClick);
+        if (isCharacterControlled)
+        {
+            ChangeCandiesAmount((int)(PlayersController.Instance.currentCharacterSelected.currentCandiesObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusCandiesObtained));
+            PlayersController.Instance.currentCharacterSelected.ChangePowerBarValue(PlayersController.Instance.currentCharacterSelected.currentPowerObtainedPerClick);
+        }
 
         if (enemy.IsAlive() == false)
         {

@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterUpgrade", menuName = "Clicker/Character Upgrade")]
-public class CharacterUpgrade : ScriptableObject
+[Serializable]
+public class CharacterUpgrade
 {
     #region Properties
     public int Cost => cost;

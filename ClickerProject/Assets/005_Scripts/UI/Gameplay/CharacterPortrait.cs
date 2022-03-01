@@ -93,7 +93,7 @@ public class CharacterPortrait : MonoBehaviour
             if (this != PlayersController.Instance.currentCharacterSelected)
             {
                 Debug.Log(name + " Auto attacks !");
-                GameCore.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy);
+                GameCore.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, false);
             }
         }
     }
