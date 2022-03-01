@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Schnaps
   portraitSprite: {fileID: -6767542202048036990, guid: b60d6049796f6d844b8d715cb120cb30, type: 3}
-  maxPowerValue: 50
+  maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: 8a4984e6815c8af4f9c615acfaf490ed, type: 2}

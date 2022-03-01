@@ -17,3 +17,27 @@ MonoBehaviour:
     attackPerClickModifier: 2
     autoClickInterval: 1
     powerObtainedPerClickModifier: 2
+  - cost: 100
+    attackPerClickModifier: 5
+    autoClickInterval: 0.8
+    powerObtainedPerClickModifier: 3
+  - cost: 200
+    attackPerClickModifier: 10
+    autoClickInterval: 0.75
+    powerObtainedPerClickModifier: 3
+  - cost: 400
+    attackPerClickModifier: 20
+    autoClickInterval: 0.7
+    powerObtainedPerClickModifier: 4
+  - cost: 800
+    attackPerClickModifier: 30
+    autoClickInterval: 0.7
+    powerObtainedPerClickModifier: 4
+  - cost: 1600
+    attackPerClickModifier: 50
+    autoClickInterval: 0.6
+    powerObtainedPerClickModifier: 4
+  - cost: 3500
+    attackPerClickModifier: 100
+    autoClickInterval: 0.6
+    powerObtainedPerClickModifier: 5
