@@ -27,8 +27,12 @@ public class CharacterPortrait : MonoBehaviour
     public float defaultCurrentBonusCandiesObtained { get; set; }
     public float defaultCurrentBonusGoldObtained { get; set; }
 
+    public int defaultCurrentBonusIntervalAutoClickPercent { get; set; }
+
     public float currentBonusGoldObtained { get; set; }
     public float currentBonusCandiesObtained { get; set; }
+
+    public int currentBonusIntervalAutoClickPercent { get; set; }
 
     public int currentDamagePerClick { get; set; }
 
@@ -86,14 +90,16 @@ public class CharacterPortrait : MonoBehaviour
     {
         timerAutoDamage += Time.deltaTime;
 
-        if (timerAutoDamage >= currentIntervalAutoClick)
+        float interval = currentIntervalAutoClick * currentBonusIntervalAutoClickPercent / 100;
+        interval = currentIntervalAutoClick - interval;
+        if (timerAutoDamage >= interval)
         {
             timerAutoDamage = 0.0f;
 
             if (this != PlayersController.Instance.currentCharacterSelected)
             {
                 Debug.Log(name + " Auto attacks !");
-                GameCore.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, false);
+                PlayersController.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, false);
             }
         }
     }

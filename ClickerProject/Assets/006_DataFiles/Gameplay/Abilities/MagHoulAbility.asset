@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: MagHoulAbility
   m_EditorClassIdentifier: 
   damagePercent: 10
+  autoClickSpeedBonusPercent: 5
+  bonusDuration: 3

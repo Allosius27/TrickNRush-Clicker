@@ -25,7 +25,7 @@ public class SpecialAbility : ScriptableObject
         Enemy enemy = EntitiesManager.Instance.Enemy;
         int damage = GetDamageInflicted(enemy);
         Debug.Log(damage);
-        GameCore.Instance.Hit(damage, enemy, true);
+        PlayersController.Instance.Hit(damage, enemy, true);
     }
 
     public int GetDamageInflicted(Enemy _enemy)

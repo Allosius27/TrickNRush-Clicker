@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 {
     #region Fields
 
-    
+    private GameObject upgradeInstance;
 
     #endregion
 
@@ -33,7 +34,7 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 
     [Space]
 
-    [SerializeField] private List<CharacterUpgradeData> characterUpgrades = new List<CharacterUpgradeData>();
+    //[SerializeField] private List<CharacterUpgradeData> characterUpgrades = new List<CharacterUpgradeData>();
     [SerializeField] private GameObject prefabUpgradeUi;
     [SerializeField] private Transform parentCharactersUpgrades;
 
@@ -45,11 +46,30 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
     {
         ChangeCharacterSelected(charactersPortraits[0]);
 
-        for(int i = 0; i < characterUpgrades.Count; i++)
+        CreateCharacterUpgradeInstance();
+        SetCharacterUpgradeUI();
+
+        UpdateCandiesUI();
+        UpdateGoldUI();
+    }
+
+    private void CreateCharacterUpgradeInstance()
+    {
+        upgradeInstance = Instantiate(prefabUpgradeUi, parentCharactersUpgrades, false);
+        upgradeInstance.transform.localPosition = Vector3.zero;
+    }
+
+    public void SetCharacterUpgradeUI()
+    {
+        if (upgradeInstance != null)
         {
-            GameObject upgradeInstance = Instantiate(prefabUpgradeUi, parentCharactersUpgrades, false);
-            upgradeInstance.transform.localPosition = Vector3.zero;
-            upgradeInstance.GetComponent<CharacterUpgradeUI>().Initialize(characterUpgrades[i], charactersPortraits[i]);
+            
+            upgradeInstance.GetComponent<CharacterUpgradeUI>().Initialize(PlayersController.Instance.currentCharacterSelected.characterData.characterUpgrade, 
+                PlayersController.Instance.currentCharacterSelected);
+        }
+        else
+        {
+            Debug.LogWarning("upgradeInstance is null");
         }
     }
 
@@ -63,6 +83,18 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
         character.SelectCharacter(true);
         currentSelectedCharacterPortrait.sprite = character.characterData.portraitSprite;
         PlayersController.Instance.currentCharacterSelected = character;
+
+        SetCharacterUpgradeUI();
+    }
+
+    public void UpdateGoldUI()
+    {
+        goldUi.GetComponent<TextMeshProUGUI>().text = PlayersController.Instance.CurrentGold.ToString();
+    }
+
+    public void UpdateCandiesUI()
+    {
+        candiesUi.GetComponent<TextMeshProUGUI>().text = PlayersController.Instance.CurrentCandies.ToString();
     }
 
     #endregion

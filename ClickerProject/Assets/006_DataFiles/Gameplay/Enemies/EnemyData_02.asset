@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listNames: {fileID: 11400000, guid: da78c9ecd44a3de4f95f0d47142b75d2, type: 2}
   listNicknames: {fileID: 11400000, guid: 92e8777ecf30eac47938a45968367291, type: 2}
-  startLife: 10
-  sprite: {fileID: -820914120378542767, guid: b60d6049796f6d844b8d715cb120cb30, type: 3}
+  startLife: 50
+  visual: {fileID: 2283032874994352320, guid: e59bdca3e125d6a4cbfb4ae54f035594, type: 3}
+  healthModifierPercent: 10

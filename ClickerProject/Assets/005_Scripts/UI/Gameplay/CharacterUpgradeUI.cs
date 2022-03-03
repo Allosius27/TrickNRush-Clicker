@@ -77,11 +77,11 @@ public class CharacterUpgradeUI : MonoBehaviour
 
     public void OnClick()
     {
-        if(GameCore.Instance.CurrentCandies >= currentCharacterUpgrade.Cost)
+        if(PlayersController.Instance.CurrentCandies >= currentCharacterUpgrade.Cost)
         {
             Debug.Log("Buy Upgrade");
 
-            GameCore.Instance.AddCharacterUpgrade(currentCharacterUpgrade, characterPortrait);
+            PlayersController.Instance.AddCharacterUpgrade(currentCharacterUpgrade, characterPortrait);
 
             currentCharacterUpgradeIndex++;
             level++;

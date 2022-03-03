@@ -12,11 +12,15 @@ public class Enemy : MonoBehaviour
     private int life;
     private int lifeMax;
 
+    private int _previousLifesModifiersPercent;
+
     private string enemyName;
     private string enemyNickname;
 
     private List<string> possiblesNames = new List<string>();
     private List<string> possiblesNicknames = new List<string>();
+
+    private GameObject visual;
 
     #endregion
 
@@ -34,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     #region UnityInspector
 
-    [SerializeField] private GameObject visual;
+    [SerializeField] private GameObject graphicsObject;
 
     [Space]
 
@@ -51,6 +55,11 @@ public class Enemy : MonoBehaviour
 
     public void SetEnemy(EnemyData infos)
     {
+        if (currentEnemyData != null)
+        {
+            _previousLifesModifiersPercent += currentEnemyData.healthModifierPercent;
+        }
+
         currentEnemyData = infos;
         possiblesNames.Clear();
         possiblesNicknames.Clear();
@@ -64,10 +73,16 @@ public class Enemy : MonoBehaviour
             possiblesNicknames.Add(currentEnemyData.listNicknames.possiblesNames[i]);
         }
 
-        lifeMax = currentEnemyData.startLife;
+        int _lifeModifier = currentEnemyData.startLife * _previousLifesModifiersPercent / 100;
+        lifeMax = _lifeModifier + currentEnemyData.startLife;
         life = lifeMax;
 
-        visual.GetComponent<SpriteRenderer>().sprite = currentEnemyData.sprite;
+        if(visual != null)
+        {
+            Destroy(visual);
+        }
+        visual = Instantiate(currentEnemyData.visual, graphicsObject.transform, false);
+        visual.transform.localPosition = Vector3.zero;
 
         int rndName = 0;
         while(possiblesNames[rndName] == enemyName)
@@ -100,8 +115,8 @@ public class Enemy : MonoBehaviour
             life = 0;
         }
 
-        visual.transform.DOComplete();
-        visual.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f);
+        graphicsObject.transform.DOComplete();
+        graphicsObject.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.3f);
 
         UpdateLife();
     }

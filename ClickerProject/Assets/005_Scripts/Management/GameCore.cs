@@ -8,15 +8,11 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 {
     #region Fields
 
-    private int currentGold;
-    private int currentCandies;
-
     #endregion
 
     #region Properties
 
-    public int CurrentGold => currentGold;
-    public int CurrentCandies => currentCandies;
+    public GameObject PrefabHitPoint => prefabHitPoint;
 
     #endregion
 
@@ -39,9 +35,6 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     private void Start()
     {
-        UpdateCandiesUI();
-        UpdateGoldUI();
-
         NewMonster();
 
         /*for (var i = 0; i < 1000; i++)
@@ -51,87 +44,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         }*/
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
-
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.name);
-
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    Hit(PlayersController.Instance.currentCharacterSelected.currentDamagePerClick, enemy, true);
-                }
-            }
-        }
-
-
-    }
-
-    public void AddCharacterUpgrade(CharacterUpgrade upgrade, CharacterPortrait character)
-    {
-        Debug.Log("Add Character Upgrade");
-
-        character.currentDamagePerClick += upgrade.AttackPerClickModifier;
-        character.currentIntervalAutoClick = upgrade.AutoClickInterval;
-        character.currentPowerObtainedPerClick += upgrade.PowerObtainedPerClickModifier;
-
-        ChangeCandiesAmount(-upgrade.Cost);
-    }
-
-    public void Hit(int damage, Enemy enemy, bool isCharacterControlled)
-    {
-        enemy.TakeDamage(damage);
-        GameObject feedback = Instantiate(prefabHitPoint, enemy.LocalCanvas.transform, false);
-        feedback.transform.localPosition = Vector3.zero;
-        feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 250;
-        feedback.transform.DOLocalMoveY(500f, 0.8f);
-        feedback.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
-        feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 0.8f);
-        Destroy(feedback, 1f);
-
-        if (isCharacterControlled)
-        {
-            ChangeCandiesAmount((int)(PlayersController.Instance.currentCharacterSelected.currentCandiesObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusCandiesObtained));
-            PlayersController.Instance.currentCharacterSelected.ChangePowerBarValue(PlayersController.Instance.currentCharacterSelected.currentPowerObtainedPerClick);
-        }
-
-        if (enemy.IsAlive() == false)
-        {
-            ChangeGoldAmount((int)(PlayersController.Instance.currentCharacterSelected.currentGoldObtainedPerClick * PlayersController.Instance.currentCharacterSelected.currentBonusGoldObtained));
-
-            NewMonster();
-        }
-    }
-
-    public void ChangeGoldAmount(int _amount)
-    {
-        currentGold += _amount;
-        UpdateGoldUI();
-    }
-
-    private void UpdateGoldUI()
-    {
-        GUIManager.Instance.GoldUI.GetComponent<TextMeshProUGUI>().text = currentGold.ToString();
-    }
-
-    public void ChangeCandiesAmount(int _amount)
-    {
-        currentCandies += _amount;
-        UpdateCandiesUI();
-    }
-
-    private void UpdateCandiesUI()
-    {
-        GUIManager.Instance.CandiesUI.GetComponent<TextMeshProUGUI>().text = currentCandies.ToString();
-    }
-
-    private void NewMonster()
+    public void NewMonster()
     {
         int _currentMonster = 0;
         if (typesEnemies.Count > 1)
@@ -144,6 +57,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
             typesEnemies = IntUtil.RandomizeList(typesEnemies);
         }
+
         EntitiesManager.Instance.Enemy.SetEnemy(typesEnemies[_currentMonster]);
     }
 

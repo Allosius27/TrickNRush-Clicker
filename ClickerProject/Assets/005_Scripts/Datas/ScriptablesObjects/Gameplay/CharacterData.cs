@@ -11,5 +11,11 @@ public class CharacterData : ScriptableObject
 
     public float maxPowerValue;
 
+    [Space]
+
     public SpecialAbility specialAbility;
+
+    [Space]
+
+    public CharacterUpgradeData characterUpgrade;
 }

@@ -19,7 +19,7 @@ public class SchnapsAbility : SpecialAbility
         int damage = GetDamageInflicted(enemy);
         int goldObtained = (int)(damage * goldBonusMultiplier);
 
-        GameCore.Instance.ChangeGoldAmount(goldObtained);
+        PlayersController.Instance.ChangeGoldAmount(goldObtained);
     }
 
     #endregion
