@@ -99,7 +99,7 @@ public class CharacterPortrait : MonoBehaviour
             if (this != PlayersController.Instance.currentCharacterSelected)
             {
                 Debug.Log(name + " Auto attacks !");
-                PlayersController.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, false);
+                PlayersController.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, this, false);
             }
         }
     }
@@ -119,7 +119,7 @@ public class CharacterPortrait : MonoBehaviour
 
     public void LaunchAbility()
     {
-        characterData.specialAbility.Attack();
+        characterData.specialAbility.Attack(this);
 
         characterData.specialAbility.ApplySpecialEffect(this);
         StartCoroutine(characterData.specialAbility.SpecialEffectDuration(this));

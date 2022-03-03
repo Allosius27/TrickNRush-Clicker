@@ -20,12 +20,12 @@ public class SpecialAbility : ScriptableObject
 
     #region Behaviour
     
-    public void Attack()
+    public void Attack(CharacterPortrait _character)
     {
         Enemy enemy = EntitiesManager.Instance.Enemy;
         int damage = GetDamageInflicted(enemy);
         Debug.Log(damage);
-        PlayersController.Instance.Hit(damage, enemy, true);
+        PlayersController.Instance.Hit(damage, enemy, _character, true);
     }
 
     public int GetDamageInflicted(Enemy _enemy)

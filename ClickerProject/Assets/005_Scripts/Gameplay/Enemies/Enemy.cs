@@ -20,7 +20,9 @@ public class Enemy : MonoBehaviour
     private List<string> possiblesNames = new List<string>();
     private List<string> possiblesNicknames = new List<string>();
 
-    private GameObject visual;
+    private EnemyVisual visual;
+
+    private int hitIndex = 0;
 
     #endregion
 
@@ -77,15 +79,18 @@ public class Enemy : MonoBehaviour
         lifeMax = _lifeModifier + currentEnemyData.startLife;
         life = lifeMax;
 
-        if(visual != null)
-        {
-            Destroy(visual);
-        }
-        visual = Instantiate(currentEnemyData.visual, graphicsObject.transform, false);
-        visual.transform.localPosition = Vector3.zero;
+        SetEnemyVisual();
 
+        SetEnemyName();
+
+        UpdateName();
+        UpdateLife();
+    }
+
+    private void SetEnemyName()
+    {
         int rndName = 0;
-        while(possiblesNames[rndName] == enemyName)
+        while (possiblesNames[rndName] == enemyName)
         {
             //rndName = Random.Range(0, infos.listNames.possiblesNames.Count);
             rndName = IntUtil.Random(0, possiblesNames.Count);
@@ -94,20 +99,41 @@ public class Enemy : MonoBehaviour
         possiblesNames = IntUtil.RandomizeList(possiblesNames);
 
         int rndNickname = 0;
-        while(possiblesNicknames[rndNickname] == enemyNickname)
+        while (possiblesNicknames[rndNickname] == enemyNickname)
         {
             //rndNickname = Random.Range(0, infos.listNicknames.possiblesNames.Count);
             rndNickname = IntUtil.Random(0, possiblesNicknames.Count);
         }
         enemyNickname = possiblesNicknames[rndNickname];
         possiblesNicknames = IntUtil.RandomizeList(possiblesNicknames);
+    }
 
-        UpdateName();
-        UpdateLife();
+    private void SetEnemyVisual()
+    {
+        if (visual != null)
+        {
+            Destroy(visual.gameObject);
+        }
+        visual = Instantiate(currentEnemyData.visual, graphicsObject.transform, false);
+        visual.transform.localPosition = Vector3.zero;
+    }
+
+    public void LaunchHitAnimation()
+    {
+        visual.Animator.SetTrigger("Hurt");
+        visual.Animator.SetInteger("Hit", hitIndex);
+
+        hitIndex++;
+        if (hitIndex >= currentEnemyData.hitAnimationsNumber)
+        {
+            hitIndex = 0;
+        }
     }
 
     public void TakeDamage(int _amount)
     {
+        
+
         life -= _amount;
 
         if(life <= 0)

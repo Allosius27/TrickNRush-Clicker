@@ -15,5 +15,6 @@ MonoBehaviour:
   listNames: {fileID: 11400000, guid: da78c9ecd44a3de4f95f0d47142b75d2, type: 2}
   listNicknames: {fileID: 11400000, guid: 92e8777ecf30eac47938a45968367291, type: 2}
   startLife: 100
-  visual: {fileID: 2283032874994352320, guid: e59bdca3e125d6a4cbfb4ae54f035594, type: 3}
+  visual: {fileID: 4605639676577508784, guid: e59bdca3e125d6a4cbfb4ae54f035594, type: 3}
+  hitAnimationsNumber: 3
   healthModifierPercent: 15

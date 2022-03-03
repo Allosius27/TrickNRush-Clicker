@@ -12,7 +12,8 @@ public class EnemyData : ScriptableObject
 
     public int startLife;
     //public Sprite sprite;
-    public GameObject visual;
+    public EnemyVisual visual;
+    public int hitAnimationsNumber;
 
     [Space]
 
