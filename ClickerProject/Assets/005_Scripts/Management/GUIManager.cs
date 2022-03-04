@@ -81,7 +81,7 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
         }
 
         character.SelectCharacter(true);
-        currentSelectedCharacterPortrait.sprite = character.characterData.portraitSprite;
+        currentSelectedCharacterPortrait.sprite = character.characterData.selectedPortraitSprite;
         PlayersController.Instance.currentCharacterSelected = character;
 
         SetCharacterUpgradeUI();

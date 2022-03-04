@@ -13,6 +13,10 @@ public class CharacterUpgrade
     public float AutoClickInterval => autoClickInterval;
     public int PowerObtainedPerClickModifier => powerObtainedPerClickModifier;
 
+    public Sprite UpgradeUnlockedUiIcon => upgradeUnlockedUiIcon;
+    public Sprite UpgradeLockedUiIcon => upgradeLockedUiIcon;
+
+
     #endregion
 
     #region UnityInspector
@@ -22,6 +26,11 @@ public class CharacterUpgrade
     [SerializeField] private int attackPerClickModifier;
     [SerializeField] private float autoClickInterval;
     [SerializeField] private int powerObtainedPerClickModifier;
+
+    [Space]
+
+    [SerializeField] private Sprite upgradeUnlockedUiIcon;
+    [SerializeField] private Sprite upgradeLockedUiIcon;
 
     #endregion
 }

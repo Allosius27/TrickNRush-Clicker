@@ -7,7 +7,12 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
 
+    [Space]
+
     public Sprite portraitSprite;
+    public Sprite selectedPortraitSprite;
+
+    [Space]
 
     public float maxPowerValue;
 

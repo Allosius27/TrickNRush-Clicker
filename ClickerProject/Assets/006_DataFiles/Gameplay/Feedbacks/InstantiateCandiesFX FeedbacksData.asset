@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa7626fd3d23d44e8e847b75899cfa6, type: 3}
+  m_Name: InstantiateCandiesFX FeedbacksData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  feedbacks:
+  - Type: 3
+    feedbackWait:
+      IsActive: 1
+      waitTime: 0
+    feedbackPlaySound:
+      IsActive: 1
+      audioData: {fileID: 0}
+    feedbackInstantiateObject:
+      IsActive: 1
+      objectToInstantiate: {fileID: 3599826945242012776, guid: 0c2abe61a8f1b8f47bd6faa6ca878319, type: 3}
+      objectPositionOffset: {x: 0, y: 0, z: -1}
+    feedbackChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+    feedbackReturnInitialColorSprite:
+      IsActive: 1

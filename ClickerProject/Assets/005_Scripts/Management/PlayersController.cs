@@ -93,6 +93,7 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         {
             enemy.LaunchHitAnimation();
 
+            StartCoroutine(GameCore.Instance.FxCandiesFeedback.Execute(enemy.gameObject));
 
             attackCharacter.ChangePowerBarValue(attackCharacter.currentPowerObtainedPerClick);
         }
@@ -112,6 +113,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         character.currentDamagePerClick += upgrade.AttackPerClickModifier;
         character.currentIntervalAutoClick = upgrade.AutoClickInterval;
         character.currentPowerObtainedPerClick += upgrade.PowerObtainedPerClickModifier;
+
+        character.autoClickActive = true;
 
         ChangeCandiesAmount(-upgrade.Cost);
     }

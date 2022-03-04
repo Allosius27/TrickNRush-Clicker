@@ -17,27 +17,41 @@ MonoBehaviour:
     attackPerClickModifier: 2
     autoClickInterval: 1
     powerObtainedPerClickModifier: 2
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 100
     attackPerClickModifier: 5
     autoClickInterval: 0.8
     powerObtainedPerClickModifier: 3
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 200
     attackPerClickModifier: 10
     autoClickInterval: 0.75
     powerObtainedPerClickModifier: 3
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 400
     attackPerClickModifier: 20
     autoClickInterval: 0.7
     powerObtainedPerClickModifier: 4
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 800
     attackPerClickModifier: 30
     autoClickInterval: 0.7
     powerObtainedPerClickModifier: 4
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 1600
     attackPerClickModifier: 50
     autoClickInterval: 0.6
     powerObtainedPerClickModifier: 4
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}
   - cost: 3500
     attackPerClickModifier: 100
     autoClickInterval: 0.6
     powerObtainedPerClickModifier: 5
+    upgradeUnlockedUiIcon: {fileID: 21300000, guid: 35d575925efdc7d4ba1e7f2c64de0905, type: 3}
+    upgradeLockedUiIcon: {fileID: 21300000, guid: 398499e5086c8174ea7c794a1bf3d741, type: 3}

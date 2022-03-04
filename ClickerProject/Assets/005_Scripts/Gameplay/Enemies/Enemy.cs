@@ -132,8 +132,6 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int _amount)
     {
-        
-
         life -= _amount;
 
         if(life <= 0)

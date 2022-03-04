@@ -10,7 +10,6 @@ public class CharacterUpgradeUI : MonoBehaviour
 
     private CharacterUpgradeData characterUpgradeData;
     private CharacterUpgrade currentCharacterUpgrade;
-    private int currentCharacterUpgradeIndex;
 
     private CharacterPortrait characterPortrait;
 
@@ -33,6 +32,10 @@ public class CharacterUpgradeUI : MonoBehaviour
     [SerializeField] private Button activeBuyButton;
     [SerializeField] private Button inactiveBuyButton;
 
+    [Space]
+
+    [SerializeField] private List<Image> upgradesUnlockedIcons = new List<Image>();
+
     #endregion
 
     #region Behaviour
@@ -50,9 +53,9 @@ public class CharacterUpgradeUI : MonoBehaviour
 
     private void SetCurrentCharacterUpgrade()
     {
-        if (currentCharacterUpgradeIndex < characterUpgradeData.ListCharacterUpgradesToUnlock.Count)
+        if (characterPortrait.currentCharacterUpgradeIndex < characterUpgradeData.ListCharacterUpgradesToUnlock.Count)
         {
-            currentCharacterUpgrade = characterUpgradeData.ListCharacterUpgradesToUnlock[currentCharacterUpgradeIndex];
+            currentCharacterUpgrade = characterUpgradeData.ListCharacterUpgradesToUnlock[characterPortrait.currentCharacterUpgradeIndex];
         }
         else
         {
@@ -73,6 +76,20 @@ public class CharacterUpgradeUI : MonoBehaviour
         textCost.text = currentCharacterUpgrade.Cost.ToString();
 
         textLevel.text = "Niveau " + level.ToString();
+
+        for (int i = 0; i < upgradesUnlockedIcons.Count; i++)
+        {
+            if (i < characterPortrait.currentCharacterUpgradeIndex)
+            {
+                Debug.Log("Unlock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeUnlockedUiIcon;
+            }
+            else
+            {
+                Debug.Log("Lock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeLockedUiIcon;
+            }
+        }
     }
 
     public void OnClick()
@@ -83,7 +100,7 @@ public class CharacterUpgradeUI : MonoBehaviour
 
             PlayersController.Instance.AddCharacterUpgrade(currentCharacterUpgrade, characterPortrait);
 
-            currentCharacterUpgradeIndex++;
+            characterPortrait.currentCharacterUpgradeIndex++;
             level++;
 
             SetCurrentCharacterUpgrade();

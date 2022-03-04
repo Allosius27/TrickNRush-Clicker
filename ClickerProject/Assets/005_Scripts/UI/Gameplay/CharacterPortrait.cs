@@ -45,6 +45,11 @@ public class CharacterPortrait : MonoBehaviour
 
     public float currentIntervalAutoClick { get; set; }
 
+    public bool autoClickActive { get; set; }
+
+
+    public int currentCharacterUpgradeIndex { get; set; }
+
     #endregion
 
     #region UnityInspector
@@ -88,18 +93,21 @@ public class CharacterPortrait : MonoBehaviour
 
     public void AutoClick()
     {
-        timerAutoDamage += Time.deltaTime;
-
-        float interval = currentIntervalAutoClick * currentBonusIntervalAutoClickPercent / 100;
-        interval = currentIntervalAutoClick - interval;
-        if (timerAutoDamage >= interval)
+        if (autoClickActive)
         {
-            timerAutoDamage = 0.0f;
+            timerAutoDamage += Time.deltaTime;
 
-            if (this != PlayersController.Instance.currentCharacterSelected)
+            float interval = currentIntervalAutoClick * currentBonusIntervalAutoClickPercent / 100;
+            interval = currentIntervalAutoClick - interval;
+            if (timerAutoDamage >= interval)
             {
-                Debug.Log(name + " Auto attacks !");
-                PlayersController.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, this, false);
+                timerAutoDamage = 0.0f;
+
+                if (this != PlayersController.Instance.currentCharacterSelected)
+                {
+                    Debug.Log(name + " Auto attacks !");
+                    PlayersController.Instance.Hit(this.currentDamagePerClick, EntitiesManager.Instance.Enemy, this, false);
+                }
             }
         }
     }

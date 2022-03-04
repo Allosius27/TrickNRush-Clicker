@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mag'Houl
   portraitSprite: {fileID: 2285160865259754595, guid: 56ebe439bbb262d4aaba66182a223308, type: 3}
+  selectedPortraitSprite: {fileID: 21300000, guid: 6b413fd0b15f2364aaa2f4c544efcdd9, type: 3}
   maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: fe5c1450b55ce544da54a653613c3fc8, type: 2}
   characterUpgrade: {fileID: 11400000, guid: 9f761cde796b33844992bb8811b71111, type: 2}

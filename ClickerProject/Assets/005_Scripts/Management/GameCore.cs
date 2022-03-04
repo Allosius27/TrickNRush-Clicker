@@ -14,11 +14,15 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     public GameObject PrefabHitPoint => prefabHitPoint;
 
+    public AllosiusDev.FeedbacksData FxCandiesFeedback => fxCandiesFeedback;
+
     #endregion
 
     #region UnityInspector
 
     [SerializeField] private GameObject prefabHitPoint;
+
+    [SerializeField] private AllosiusDev.FeedbacksData fxCandiesFeedback;
 
     [Space]
 
