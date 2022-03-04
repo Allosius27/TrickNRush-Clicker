@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GarnerAbility
   m_EditorClassIdentifier: 
   damagePercent: 20
+  rushActivationPrefab: {fileID: 8075616689560464956, guid: 87ce02f0d61917c438db2a0a92e4a307, type: 3}

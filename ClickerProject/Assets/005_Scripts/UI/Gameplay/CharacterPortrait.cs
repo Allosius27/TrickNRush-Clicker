@@ -29,10 +29,14 @@ public class CharacterPortrait : MonoBehaviour
 
     public int defaultCurrentBonusIntervalAutoClickPercent { get; set; }
 
+
+
     public float currentBonusGoldObtained { get; set; }
     public float currentBonusCandiesObtained { get; set; }
 
     public int currentBonusIntervalAutoClickPercent { get; set; }
+
+
 
     public int currentDamagePerClick { get; set; }
 
@@ -44,6 +48,16 @@ public class CharacterPortrait : MonoBehaviour
 
 
     public float currentIntervalAutoClick { get; set; }
+    
+    
+
+
+    public float currentGoldBonusMultiplierUpgrade { get; set; }
+    public float currentCandiesBonusMultiplierUpgrade { get; set; }
+
+    public float currentBonusDurationUpgrade { get; set; }
+
+
 
     public bool autoClickActive { get; set; }
 
@@ -93,7 +107,7 @@ public class CharacterPortrait : MonoBehaviour
 
     public void AutoClick()
     {
-        if (autoClickActive)
+        if (autoClickActive && PlayersController.Instance.canAttack)
         {
             timerAutoDamage += Time.deltaTime;
 
@@ -125,12 +139,22 @@ public class CharacterPortrait : MonoBehaviour
         UpdatePowerBar();
     }
 
-    public void LaunchAbility()
+    public IEnumerator LaunchAbility()
     {
+        Enemy enemy = EntitiesManager.Instance.Enemy;
+        TimerObjectDuration _rush = Instantiate(characterData.specialAbility.RushActivationPrefab,
+            enemy.transform.position, Quaternion.identity);
+
+        PlayersController.Instance.canAttack = false;
+
+        yield return new WaitForSeconds(_rush.LifeTime);
+        
         characterData.specialAbility.Attack(this);
 
         characterData.specialAbility.ApplySpecialEffect(this);
         StartCoroutine(characterData.specialAbility.SpecialEffectDuration(this));
+
+        PlayersController.Instance.canAttack = true;
     }
 
     public void ChangeCharacterControlled()
@@ -177,7 +201,7 @@ public class CharacterPortrait : MonoBehaviour
 
             ChangePowerBarValue(-powerValue);
 
-            LaunchAbility();
+            StartCoroutine(LaunchAbility());
         }
     }
 

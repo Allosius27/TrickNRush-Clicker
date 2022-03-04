@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: KitschieAbility
   m_EditorClassIdentifier: 
   damagePercent: 4
+  rushActivationPrefab: {fileID: 992308316691273669, guid: 415fe2a60f7e66548a1069dbe28276f4, type: 3}
   candiesBonusMultiplier: 1.4
   goldBonusMultiplier: 1.4
   bonusDuration: 3

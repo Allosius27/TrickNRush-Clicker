@@ -10,11 +10,15 @@ public class SpecialAbility : ScriptableObject
 
     public int DamagePercent => damagePercent;
 
+    public TimerObjectDuration RushActivationPrefab =>rushActivationPrefab;
+
     #endregion
 
     #region UnityInspector
     [Range(0, 100)]
     [SerializeField] private int damagePercent;
+
+    [SerializeField] private TimerObjectDuration rushActivationPrefab;
 
     #endregion
 
@@ -24,7 +28,7 @@ public class SpecialAbility : ScriptableObject
     {
         Enemy enemy = EntitiesManager.Instance.Enemy;
         int damage = GetDamageInflicted(enemy);
-        Debug.Log(damage);
+        //Debug.Log(damage);
         PlayersController.Instance.Hit(damage, enemy, _character, true);
     }
 

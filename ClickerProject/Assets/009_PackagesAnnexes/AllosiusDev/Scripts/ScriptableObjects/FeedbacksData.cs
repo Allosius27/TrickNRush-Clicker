@@ -145,7 +145,7 @@ namespace AllosiusDev
             return null;
         }
 
-        public IEnumerator Execute(GameObject _owner)
+        public IEnumerator CoroutineExecute(GameObject _owner)
         {
             Debug.Log("Execute");
             foreach (var item in feedbacks)
@@ -154,8 +154,6 @@ namespace AllosiusDev
                 yield return GetTypeFeedback(item).Execute(_owner);
             }
         }
-
-
 
         public void SetTarget(Transform _target)
         {

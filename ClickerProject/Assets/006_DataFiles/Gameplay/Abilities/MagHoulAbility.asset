@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MagHoulAbility
   m_EditorClassIdentifier: 
   damagePercent: 10
+  rushActivationPrefab: {fileID: 2483633327777480748, guid: 31f9a9956f7546447b2d9492f6daf1fa, type: 3}
   autoClickSpeedBonusPercent: 5
   bonusDuration: 3

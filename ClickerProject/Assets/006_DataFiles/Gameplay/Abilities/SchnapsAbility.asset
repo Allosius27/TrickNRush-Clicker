@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SchnapsAbility
   m_EditorClassIdentifier: 
   damagePercent: 10
+  rushActivationPrefab: {fileID: 4229703002863870808, guid: f4ae5101900077449aafecb2c0f33b1a, type: 3}
   goldBonusMultiplier: 1.1

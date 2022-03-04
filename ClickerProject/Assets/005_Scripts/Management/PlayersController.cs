@@ -20,6 +20,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     public CharacterPortrait currentCharacterSelected { get; set; }
 
+    public bool canAttack { get; set; }
+
     #endregion
 
     #region UnityInspector
@@ -34,12 +36,14 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     private void Start()
     {
+        canAttack = true;
+
         InitCharacters();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(world, Vector2.zero);
@@ -88,14 +92,15 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         Destroy(feedback, 1f);
 
         ChangeCandiesAmount((int)(attackCharacter.currentCandiesObtainedPerClick * attackCharacter.currentBonusCandiesObtained));
+        
+        attackCharacter.ChangePowerBarValue(attackCharacter.currentPowerObtainedPerClick);
 
         if (isCharacterControlled)
         {
             enemy.LaunchHitAnimation();
 
-            StartCoroutine(GameCore.Instance.FxCandiesFeedback.Execute(enemy.gameObject));
+            StartCoroutine(GameCore.Instance.FxCandiesFeedback.CoroutineExecute(enemy.gameObject));
 
-            attackCharacter.ChangePowerBarValue(attackCharacter.currentPowerObtainedPerClick);
         }
 
         if (enemy.IsAlive() == false)
