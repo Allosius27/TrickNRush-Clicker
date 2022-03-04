@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rush
       objectReference: {fileID: 0}
+    - target: {fileID: 8138419987095093070, guid: 8dfca99cabf1aa94497dbbb34111ca90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dfca99cabf1aa94497dbbb34111ca90, type: 3}
 --- !u!1001 &2218517282397950846

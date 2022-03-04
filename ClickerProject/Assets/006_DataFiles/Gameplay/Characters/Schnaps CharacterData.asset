@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Schnaps CharacterData
   m_EditorClassIdentifier: 
   characterName: Schnaps
-  portraitSprite: {fileID: 21300000, guid: 232fc88d3d9ea94449df57a6b798a1b5, type: 3}
+  portraitSprite: {fileID: 7232641245344050508, guid: 56ebe439bbb262d4aaba66182a223308, type: 3}
   maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: 8a4984e6815c8af4f9c615acfaf490ed, type: 2}
   characterUpgrade: {fileID: 11400000, guid: b52eeac05c3c3bb4abdc2007ddb99425, type: 2}
