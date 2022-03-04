@@ -195,7 +195,7 @@ public class CharacterPortrait : MonoBehaviour
 
     public void UsePower()
     {
-        if (canUsePower)
+        if (canUsePower && PlayersController.Instance.canAttack)
         {
             Debug.Log(gameObject.name + " Use Power");
 

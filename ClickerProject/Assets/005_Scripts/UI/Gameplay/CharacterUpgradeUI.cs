@@ -71,7 +71,7 @@ public class CharacterUpgradeUI : MonoBehaviour
         portrait.sprite = characterPortrait.characterData.portraitSprite;
         textName.text = characterPortrait.name;
         attackDescription.text = "Attaque : " + characterPortrait.currentDamagePerClick;
-        powerCostDescription.text = "Coût Compétence Rush : " + characterPortrait.MaxPowerValue;
+        powerCostDescription.text = "Vitesse Régénération Rush : " + characterPortrait.currentPowerObtainedPerClick;
 
         textCost.text = currentCharacterUpgrade.Cost.ToString();
 
