@@ -8,7 +8,8 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 {
     #region Fields
 
-    private GameObject upgradeInstance;
+    private GameObject characterUpgradeInstance;
+    private GameObject characterAbilityUpgradeInstance;
 
     #endregion
 
@@ -34,8 +35,8 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 
     [Space]
 
-    //[SerializeField] private List<CharacterUpgradeData> characterUpgrades = new List<CharacterUpgradeData>();
     [SerializeField] private GameObject prefabUpgradeUi;
+    [SerializeField] private GameObject prefabAbilityUpgradeUi;
     [SerializeField] private Transform parentCharactersUpgrades;
 
     #endregion
@@ -47,7 +48,10 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
         ChangeCharacterSelected(charactersPortraits[0]);
 
         CreateCharacterUpgradeInstance();
+        CreateCharacterAbilityUpdradeInstance();
+
         SetCharacterUpgradeUI();
+        SetCharacterAbilityUpgradeUI();
 
         UpdateCandiesUI();
         UpdateGoldUI();
@@ -55,16 +59,35 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
 
     private void CreateCharacterUpgradeInstance()
     {
-        upgradeInstance = Instantiate(prefabUpgradeUi, parentCharactersUpgrades, false);
-        upgradeInstance.transform.localPosition = Vector3.zero;
+        characterUpgradeInstance = Instantiate(prefabUpgradeUi, parentCharactersUpgrades, false);
+        characterUpgradeInstance.transform.localPosition = Vector3.zero;
+    }
+
+    private void CreateCharacterAbilityUpdradeInstance()
+    {
+        characterAbilityUpgradeInstance = Instantiate(prefabAbilityUpgradeUi, parentCharactersUpgrades, false);
+        characterAbilityUpgradeInstance.transform.localPosition = Vector3.zero;
     }
 
     public void SetCharacterUpgradeUI()
     {
-        if (upgradeInstance != null)
+        if (characterUpgradeInstance != null)
         {
             
-            upgradeInstance.GetComponent<CharacterUpgradeUI>().Initialize(PlayersController.Instance.currentCharacterSelected.characterData.characterUpgrade, 
+            characterUpgradeInstance.GetComponent<CharacterUpgradeUI>().Initialize(PlayersController.Instance.currentCharacterSelected.characterData.characterUpgrade, 
+                PlayersController.Instance.currentCharacterSelected);
+        }
+        else
+        {
+            Debug.LogWarning("upgradeInstance is null");
+        }
+    }
+
+    public void SetCharacterAbilityUpgradeUI()
+    {
+        if (characterAbilityUpgradeInstance != null)
+        {
+            characterAbilityUpgradeInstance.GetComponent<CharacterAbilityUpgradeUI>().Initialize(PlayersController.Instance.currentCharacterSelected.characterData.abilityUpgrade,
                 PlayersController.Instance.currentCharacterSelected);
         }
         else
@@ -85,6 +108,7 @@ public class GUIManager : AllosiusDev.Singleton<GUIManager>
         PlayersController.Instance.currentCharacterSelected = character;
 
         SetCharacterUpgradeUI();
+        SetCharacterAbilityUpgradeUI();
     }
 
     public void UpdateGoldUI()

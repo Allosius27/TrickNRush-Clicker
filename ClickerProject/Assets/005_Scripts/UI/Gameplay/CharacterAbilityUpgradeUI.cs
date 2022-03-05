@@ -8,8 +8,8 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
 {
     #region Fields
 
-    private CharacterUpgradeData characterUpgradeData;
-    private CharacterUpgrade currentCharacterUpgrade;
+    private CharacterAbilityUpgradeData characterAbilityUpgradeData;
+    private CharacterAbilityUpgrade currentCharacterAbilityUpgrade;
 
     private CharacterPortrait characterPortrait;
 
@@ -40,22 +40,25 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
 
     #region Behaviour
 
-    public void Initialize(CharacterUpgradeData _upgrade, CharacterPortrait _character)
+    public void Initialize(
+        CharacterAbilityUpgradeData _upgrade, CharacterPortrait _character)
     {
-        characterUpgradeData = _upgrade;
+        characterAbilityUpgradeData = _upgrade;
         characterPortrait = _character;
+
+        _character.characterData.specialAbility.ResetBonusModifiersUpgrades();
 
         activeBuyButton.gameObject.SetActive(true);
         inactiveBuyButton.gameObject.SetActive(false);
 
-        SetCurrentCharacterUpgrade();
+        SetCurrentCharacterAbilityUpgrade();
     }
 
-    private void SetCurrentCharacterUpgrade()
+    private void SetCurrentCharacterAbilityUpgrade()
     {
-        if (characterPortrait.currentCharacterUpgradeIndex < characterUpgradeData.ListCharacterUpgradesToUnlock.Count)
+        if (characterPortrait.currentCharacterAbilityUpgradeIndex < characterAbilityUpgradeData.listCharacterAbilitiesUpgradesToUnlock.Count)
         {
-            currentCharacterUpgrade = characterUpgradeData.ListCharacterUpgradesToUnlock[characterPortrait.currentCharacterUpgradeIndex];
+            currentCharacterAbilityUpgrade = characterAbilityUpgradeData.listCharacterAbilitiesUpgradesToUnlock[characterPortrait.currentCharacterAbilityUpgradeIndex];
         }
         else
         {
@@ -70,40 +73,42 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
     {
         portrait.sprite = characterPortrait.characterData.portraitSprite;
         textName.text = characterPortrait.name;
-        attackDescription.text = "Attaque : " + characterPortrait.currentDamagePerClick;
-        powerEffectDescription.text = "Coût Compétence Rush : " + characterPortrait.MaxPowerValue;
+        attackDescription.text = "Puissance : " + characterPortrait.characterData.specialAbility.DamagePercent + "%";
+        characterPortrait.characterData.specialAbility.SetCharacterAbilityUpgrade(currentCharacterAbilityUpgrade);
+        powerEffectDescription.text = characterPortrait.characterData.specialAbility.SetDescriptionSpecialEffect();
 
-        textCost.text = currentCharacterUpgrade.Cost.ToString();
+        Debug.Log(currentCharacterAbilityUpgrade.Cost.ToString());
+        textCost.text = currentCharacterAbilityUpgrade.Cost.ToString();
 
         textLevel.text = "Niveau " + level.ToString();
 
         for (int i = 0; i < upgradesUnlockedIcons.Count; i++)
         {
-            if (i < characterPortrait.currentCharacterUpgradeIndex)
+            if (i < characterPortrait.currentCharacterAbilityUpgradeIndex)
             {
-                Debug.Log("Unlock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
-                upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeUnlockedUiIcon;
+                //Debug.Log("Unlock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                upgradesUnlockedIcons[i].sprite = currentCharacterAbilityUpgrade.UpgradeUnlockedUiIcon;
             }
             else
             {
-                Debug.Log("Lock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
-                upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeLockedUiIcon;
+                //Debug.Log("Lock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                upgradesUnlockedIcons[i].sprite = currentCharacterAbilityUpgrade.UpgradeLockedUiIcon;
             }
         }
     }
 
     public void OnClick()
     {
-        if (PlayersController.Instance.CurrentCandies >= currentCharacterUpgrade.Cost)
+        if (PlayersController.Instance.CurrentCandies >= currentCharacterAbilityUpgrade.Cost)
         {
             Debug.Log("Buy Upgrade");
 
-            PlayersController.Instance.AddCharacterUpgrade(currentCharacterUpgrade, characterPortrait);
+            PlayersController.Instance.AddCharacterAbilityUpgrade(currentCharacterAbilityUpgrade, characterPortrait);
 
-            characterPortrait.currentCharacterUpgradeIndex++;
+            characterPortrait.currentCharacterAbilityUpgradeIndex++;
             level++;
 
-            SetCurrentCharacterUpgrade();
+            SetCurrentCharacterAbilityUpgrade();
         }
     }
 

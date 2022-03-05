@@ -7,6 +7,13 @@ public class KitschieAbilitie : SpecialAbility
 {
     #region Properties
 
+    public KitschieAbilityUpgrade kitschieAbilityUpgrade { get; protected set; }
+
+    public float currentCandiesBonusMultiplierUpgrade { get; protected set; }
+    public float currentGoldBonusMultiplierUpgrade { get; protected set; }
+
+    public float currentBonusDurationUpgrade { get; protected set; }
+
     #endregion
 
     #region UnityInspector
@@ -25,16 +32,51 @@ public class KitschieAbilitie : SpecialAbility
         character.defaultCurrentBonusCandiesObtained = character.currentBonusCandiesObtained;
         character.defaultCurrentBonusGoldObtained = character.currentBonusGoldObtained;
 
-        character.currentBonusCandiesObtained = candiesBonusMultiplier;
-        character.currentBonusGoldObtained = goldBonusMultiplier;
+        float _candiesBonus = candiesBonusMultiplier + currentCandiesBonusMultiplierUpgrade;
+        character.currentBonusCandiesObtained = _candiesBonus;
+
+        float _goldBonus = goldBonusMultiplier + currentGoldBonusMultiplierUpgrade;
+        character.currentBonusGoldObtained = _goldBonus;
     }
 
     public override IEnumerator SpecialEffectDuration(CharacterPortrait character)
     {
-        yield return new WaitForSeconds(bonusDuration);
+        float _bonusDuration = bonusDuration + currentBonusDurationUpgrade;
+        yield return new WaitForSeconds(_bonusDuration);
 
         character.currentBonusCandiesObtained = character.defaultCurrentBonusCandiesObtained;
         character.currentBonusGoldObtained = character.defaultCurrentBonusGoldObtained;
+    }
+
+    public override void SetCharacterAbilityUpgrade(CharacterAbilityUpgrade characterAbilityUpgrade)
+    {
+        base.SetCharacterAbilityUpgrade(characterAbilityUpgrade);
+        kitschieAbilityUpgrade = (KitschieAbilityUpgrade)characterAbilityUpgrade;
+    }
+
+    public override void ResetBonusModifiersUpgrades()
+    {
+        base.ResetBonusModifiersUpgrades();
+
+        currentCandiesBonusMultiplierUpgrade = 0;
+        currentGoldBonusMultiplierUpgrade = 0;
+
+        currentBonusDurationUpgrade = 0;
+    }
+
+    public override string SetDescriptionSpecialEffect()
+    {
+        return "Special Effect : " + kitschieAbilityUpgrade.PowerDescription + currentCandiesBonusMultiplierUpgrade;
+    }
+
+    public override void SetBonusModifierUpgrades()
+    {
+        base.SetBonusModifierUpgrades();
+
+        currentCandiesBonusMultiplierUpgrade = kitschieAbilityUpgrade.CandiesBonusMultiplierUpgrade;
+        currentGoldBonusMultiplierUpgrade = kitschieAbilityUpgrade.GoldBonusMultiplierUpgrade;
+
+        currentBonusDurationUpgrade = kitschieAbilityUpgrade.BonusDurationUpgrade;
     }
 
     #endregion

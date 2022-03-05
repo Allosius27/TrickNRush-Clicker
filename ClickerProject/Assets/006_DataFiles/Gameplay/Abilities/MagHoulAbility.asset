@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePercent: 10
   rushActivationPrefab: {fileID: 2483633327777480748, guid: 31f9a9956f7546447b2d9492f6daf1fa, type: 3}
+  specialFxHitFeedback: {fileID: 11400000, guid: 4a0345e48d87a9c458136493fdf5f2aa, type: 2}
   autoClickSpeedBonusPercent: 5
   bonusDuration: 3

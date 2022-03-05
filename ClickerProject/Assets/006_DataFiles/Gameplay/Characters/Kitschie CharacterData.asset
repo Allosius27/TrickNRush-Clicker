@@ -18,3 +18,4 @@ MonoBehaviour:
   maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: fb2a1456f32e5bd459673ff6baf1dffa, type: 2}
   characterUpgrade: {fileID: 11400000, guid: 0d0117c8ac4491343a063cb2a289be40, type: 2}
+  abilityUpgrade: {fileID: 11400000, guid: 8d34ed4fd91c49f419156c399336dc77, type: 2}

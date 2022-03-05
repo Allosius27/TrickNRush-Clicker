@@ -23,4 +23,5 @@ public class CharacterData : ScriptableObject
     [Space]
 
     public CharacterUpgradeData characterUpgrade;
+    public CharacterAbilityUpgradeData abilityUpgrade;
 }

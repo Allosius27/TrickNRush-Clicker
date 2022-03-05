@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04b8dfd5d78656439ee715b2d2d28c7, type: 3}
+  m_Name: GarnerAbilityUpgradeData
+  m_EditorClassIdentifier: 
+  listCharacterAbilitiesUpgradesToUnlock:
+  - {fileID: 11400000, guid: 862b334491ce64c40b8dc74b8eefcf45, type: 2}
+  - {fileID: 11400000, guid: f8381162110b24f4b832d476e54b1e52, type: 2}
+  - {fileID: 11400000, guid: 98d6627110df609479e216f7502a4432, type: 2}
+  - {fileID: 11400000, guid: a13d20a6c80663640adff228ff694177, type: 2}
+  - {fileID: 11400000, guid: d06a24ae43dc2c34cad65b395b02021e, type: 2}
+  - {fileID: 11400000, guid: 3e03a7812c0aae24d89bd04ee9991dcc, type: 2}
+  - {fileID: 11400000, guid: 46563410d1e1dd948b94af683670b924, type: 2}

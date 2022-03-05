@@ -48,14 +48,6 @@ public class CharacterPortrait : MonoBehaviour
 
 
     public float currentIntervalAutoClick { get; set; }
-    
-    
-
-
-    public float currentGoldBonusMultiplierUpgrade { get; set; }
-    public float currentCandiesBonusMultiplierUpgrade { get; set; }
-
-    public float currentBonusDurationUpgrade { get; set; }
 
 
 
@@ -63,6 +55,7 @@ public class CharacterPortrait : MonoBehaviour
 
 
     public int currentCharacterUpgradeIndex { get; set; }
+    public int currentCharacterAbilityUpgradeIndex { get; set; }
 
     #endregion
 
@@ -150,6 +143,7 @@ public class CharacterPortrait : MonoBehaviour
         yield return new WaitForSeconds(_rush.LifeTime);
         
         characterData.specialAbility.Attack(this);
+        StartCoroutine(characterData.specialAbility.SpecialFxHitFeedback.CoroutineExecute(enemy.gameObject));
 
         characterData.specialAbility.ApplySpecialEffect(this);
         StartCoroutine(characterData.specialAbility.SpecialEffectDuration(this));

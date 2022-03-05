@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePercent: 4
   rushActivationPrefab: {fileID: 992308316691273669, guid: 415fe2a60f7e66548a1069dbe28276f4, type: 3}
+  specialFxHitFeedback: {fileID: 11400000, guid: f3a8b8a5ac7d3a14d99b9b49e4fa7a75, type: 2}
   candiesBonusMultiplier: 1.4
   goldBonusMultiplier: 1.4
   bonusDuration: 3

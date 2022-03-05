@@ -81,12 +81,12 @@ public class CharacterUpgradeUI : MonoBehaviour
         {
             if (i < characterPortrait.currentCharacterUpgradeIndex)
             {
-                Debug.Log("Unlock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                //Debug.Log("Unlock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
                 upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeUnlockedUiIcon;
             }
             else
             {
-                Debug.Log("Lock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
+                //Debug.Log("Lock " + i + " " + characterPortrait.currentCharacterUpgradeIndex);
                 upgradesUnlockedIcons[i].sprite = currentCharacterUpgrade.UpgradeLockedUiIcon;
             }
         }

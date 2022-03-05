@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class CharacterAbilityUpgrade
+[CreateAssetMenu(fileName = "CharacterAbilityUpgrade", menuName = "Clicker/Abilities Upgrades/Character Ability Upgrade")]
+public class CharacterAbilityUpgrade : ScriptableObject
 {
     #region Properties
     public int Cost => cost;
 
     public int PowerPercent => powerPercent;
+
+    public string PowerDescription => powerDescription;
 
     public Sprite UpgradeUnlockedUiIcon => upgradeUnlockedUiIcon;
     public Sprite UpgradeLockedUiIcon => upgradeLockedUiIcon;
@@ -22,6 +24,8 @@ public class CharacterAbilityUpgrade
     [SerializeField] private int cost;
 
     [SerializeField] private int powerPercent;
+
+    [SerializeField] private string powerDescription;
 
     [Space]
 

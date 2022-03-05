@@ -56,6 +56,7 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
                 if (enemy != null)
                 {
                     Hit(currentCharacterSelected.currentDamagePerClick, enemy, currentCharacterSelected, true);
+                    GameCore.Instance.InstantiateBaseFxHit(new Vector3(world.x, world.y, -1));
                 }
             }
         }
@@ -85,11 +86,11 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
         GameObject feedback = Instantiate(GameCore.Instance.PrefabHitPoint, enemy.LocalCanvas.transform, false);
         feedback.transform.localPosition = Vector3.zero;
-        feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 250;
-        feedback.transform.DOLocalMoveY(500f, 0.8f);
+        feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 200;
+        feedback.transform.DOLocalMoveY(500f, 1.25f);
         feedback.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
-        feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 0.8f);
-        Destroy(feedback, 1f);
+        feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 1.25f);
+        Destroy(feedback, 1.3f);
 
         ChangeCandiesAmount((int)(attackCharacter.currentCandiesObtainedPerClick * attackCharacter.currentBonusCandiesObtained));
         
@@ -123,6 +124,16 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         character.currentPowerObtainedPerClick += upgrade.PowerObtainedPerClickModifier;
 
         character.autoClickActive = true;
+
+        ChangeCandiesAmount(-upgrade.Cost);
+    }
+
+    public void AddCharacterAbilityUpgrade(CharacterAbilityUpgrade upgrade, CharacterPortrait character)
+    {
+        Debug.Log("Add Character Ability Upgrade");
+
+        character.characterData.specialAbility.SetCharacterAbilityUpgrade(upgrade);
+        character.characterData.specialAbility.SetBonusModifierUpgrades();
 
         ChangeCandiesAmount(-upgrade.Cost);
     }

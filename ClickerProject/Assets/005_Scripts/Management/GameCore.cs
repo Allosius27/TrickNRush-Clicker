@@ -13,6 +13,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     #region Properties
 
     public GameObject PrefabHitPoint => prefabHitPoint;
+    public GameObject PrefabBaseFxHit => prefabBaseFxHit;
 
     public AllosiusDev.FeedbacksData FxCandiesFeedback => fxCandiesFeedback;
     public AllosiusDev.FeedbacksData FxGoldFeedback => fxGoldFeedback;
@@ -22,6 +23,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     #region UnityInspector
 
     [SerializeField] private GameObject prefabHitPoint;
+    [SerializeField] private GameObject prefabBaseFxHit;
 
     [SerializeField] private AllosiusDev.FeedbacksData fxCandiesFeedback;
     [SerializeField] private AllosiusDev.FeedbacksData fxGoldFeedback;
@@ -48,6 +50,11 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
             int randomNumber = IntUtil.Random(1, 100);
             Debug.Log(randomNumber);
         }*/
+    }
+
+    public void InstantiateBaseFxHit(Vector3 _target)
+    {
+        GameObject _fxHit = Instantiate(prefabBaseFxHit, _target, Quaternion.identity);
     }
 
     public void NewMonster()
