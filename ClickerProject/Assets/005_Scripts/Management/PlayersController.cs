@@ -105,7 +105,10 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
         if (enemy.IsAlive() == false)
         {
+            enemy.Death();
+
             ChangeGoldAmount((int)(currentCharacterSelected.currentGoldObtainedPerClick * currentCharacterSelected.currentBonusGoldObtained));
+            StartCoroutine(GameCore.Instance.FxCandiesFeedback.CoroutineExecute(this.gameObject));
 
             GameCore.Instance.NewMonster();
         }

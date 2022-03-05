@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
 
     public EnemyData currentEnemyData { get; protected set; }
 
+    public AllosiusDev.FeedbacksData FxDeathFeedback => fxDeathFeedback;
+
     #endregion
 
     #region UnityInspector
@@ -50,6 +52,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Image fillImageLife;
 
     [SerializeField] private TextMeshProUGUI textName;
+
+    [Space]
+
+    [SerializeField] private AllosiusDev.FeedbacksData fxDeathFeedback;
 
     #endregion
 
@@ -116,6 +122,7 @@ public class Enemy : MonoBehaviour
         }
         visual = Instantiate(currentEnemyData.visual, graphicsObject.transform, false);
         visual.transform.localPosition = Vector3.zero;
+        visual.Initialize(this);
     }
 
     public void LaunchHitAnimation()
@@ -148,6 +155,19 @@ public class Enemy : MonoBehaviour
     public bool IsAlive()
     {
         return life > 0;
+    }
+
+    public void Death()
+    {
+        EnemyVisual tempVisual = Instantiate(currentEnemyData.visual, graphicsObject.transform, false);
+        tempVisual.transform.localPosition = Vector3.zero;
+        tempVisual.Initialize(this);
+        tempVisual.Animator.SetTrigger("Death");
+    }
+
+    public void InstantiateDeathFx(GameObject _target)
+    {
+        StartCoroutine(fxDeathFeedback.CoroutineExecute(_target));
     }
 
     private void UpdateLife()

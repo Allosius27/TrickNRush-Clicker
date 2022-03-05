@@ -15,6 +15,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     public GameObject PrefabHitPoint => prefabHitPoint;
 
     public AllosiusDev.FeedbacksData FxCandiesFeedback => fxCandiesFeedback;
+    public AllosiusDev.FeedbacksData FxGoldFeedback => fxGoldFeedback;
 
     #endregion
 
@@ -23,6 +24,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     [SerializeField] private GameObject prefabHitPoint;
 
     [SerializeField] private AllosiusDev.FeedbacksData fxCandiesFeedback;
+    [SerializeField] private AllosiusDev.FeedbacksData fxGoldFeedback;
 
     [Space]
 
