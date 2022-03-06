@@ -74,7 +74,7 @@ public class KitschieAbilitie : SpecialAbility
 
     public override string SetDescriptionSpecialEffect()
     {
-        return "Special Effect : " + kitschieAbilityUpgrade.PowerDescription + currentCandiesBonusMultiplierUpgrade;
+        return "Effet Spécial : " + kitschieAbilityUpgrade.PowerDescription + currentCandiesBonusMultiplierUpgrade;
     }
 
     public override void SetBonusModifierUpgrades()

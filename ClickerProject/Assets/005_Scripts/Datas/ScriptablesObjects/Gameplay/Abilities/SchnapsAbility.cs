@@ -47,7 +47,7 @@ public class SchnapsAbility : SpecialAbility
 
     public override string SetDescriptionSpecialEffect()
     {
-        return "Special Effect : " + schnapsAbilityUpgrade.PowerDescription + currentGoldBonusMultiplierUpgrade;
+        return "Effet Spécial : " + schnapsAbilityUpgrade.PowerDescription + currentGoldBonusMultiplierUpgrade;
     }
 
     public override void SetBonusModifierUpgrades()

@@ -51,7 +51,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
         characterAbilityUpgradeData = _upgrade;
         characterPortrait = _character;
 
-        _character.characterData.specialAbility.ResetBonusModifiersUpgrades();
+        //_character.characterData.specialAbility.ResetBonusModifiersUpgrades();
 
         activeBuyButton.gameObject.SetActive(true);
         inactiveBuyButton.gameObject.SetActive(false);
@@ -67,6 +67,8 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
         }
         else
         {
+            currentCharacterAbilityUpgrade = characterAbilityUpgradeData.listCharacterAbilitiesUpgradesToUnlock[characterAbilityUpgradeData.listCharacterAbilitiesUpgradesToUnlock.Count-1];
+
             activeBuyButton.gameObject.SetActive(false);
             inactiveBuyButton.gameObject.SetActive(true);
         }
@@ -78,7 +80,10 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
     {
         portrait.sprite = characterPortrait.characterData.portraitSprite;
         textName.text = characterPortrait.name;
-        attackDescription.text = "Puissance : " + characterPortrait.characterData.specialAbility.DamagePercent + "%";
+
+        int _damage = characterPortrait.characterData.specialAbility.DamagePercent + characterPortrait.characterData.specialAbility.currentDamagePercentUpgrade;
+        attackDescription.text = "Puissance : " + _damage + "%";
+        
         characterPortrait.characterData.specialAbility.SetCharacterAbilityUpgrade(currentCharacterAbilityUpgrade);
         powerEffectDescription.text = characterPortrait.characterData.specialAbility.SetDescriptionSpecialEffect();
 
@@ -107,7 +112,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
     {
         AllosiusDev.AudioManager.Play(sfxUseButtonPressed.sound);
 
-        if (PlayersController.Instance.CurrentCandies >= currentCharacterAbilityUpgrade.Cost)
+        if (PlayersController.Instance.CurrentGold >= currentCharacterAbilityUpgrade.Cost)
         {
             Debug.Log("Buy Upgrade");
 

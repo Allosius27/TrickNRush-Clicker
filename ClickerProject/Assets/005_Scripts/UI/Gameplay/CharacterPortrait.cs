@@ -99,6 +99,8 @@ public class CharacterPortrait : MonoBehaviour
         currentBonusGoldObtained = 1;
 
         currentIntervalAutoClick = 1.0f;
+
+        
     }
 
     private void Update()
@@ -130,6 +132,7 @@ public class CharacterPortrait : MonoBehaviour
     public void InitCharacterData(CharacterData _characterData)
     {
         characterData = _characterData;
+        characterData.specialAbility.ResetBonusModifiersUpgrades();
 
         name = characterData.characterName;
 

@@ -67,7 +67,7 @@ public class MagHoulAbilitie : SpecialAbility
 
     public override string SetDescriptionSpecialEffect()
     {
-        return "Special Effect : " + magHoulAbilityUpgrade.PowerDescription + currentAutoClickSpeedBonusPercentUpgrade;
+        return "Effet Spécial : " + magHoulAbilityUpgrade.PowerDescription + currentAutoClickSpeedBonusPercentUpgrade;
     }
 
     public override void SetBonusModifierUpgrades()

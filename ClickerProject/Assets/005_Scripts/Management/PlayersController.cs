@@ -154,7 +154,7 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         character.characterData.specialAbility.SetCharacterAbilityUpgrade(upgrade);
         character.characterData.specialAbility.SetBonusModifierUpgrades();
 
-        ChangeCandiesAmount(-upgrade.Cost);
+        ChangeGoldAmount(-upgrade.Cost);
     }
 
     public void ChangeGoldAmount(int _amount)

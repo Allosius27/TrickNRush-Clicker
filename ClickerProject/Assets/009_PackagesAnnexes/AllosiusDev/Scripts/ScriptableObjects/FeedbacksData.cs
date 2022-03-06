@@ -84,7 +84,7 @@ namespace AllosiusDev
             {
                 if (item.Initialized == false)
                 {
-                    Debug.Log("OnBeforeSerialize");
+                    //Debug.Log("OnBeforeSerialize");
 
                     item.IsFeedbackWait = true;
                     item.Initialized = true;
@@ -96,7 +96,7 @@ namespace AllosiusDev
             {
                 if (item.Initialized == false)
                 {
-                    Debug.Log("OnBeforeSerialize");
+                    //Debug.Log("OnBeforeSerialize");
 
                     item.IsFeedbackPlaySound = true;
                     item.Initialized = true;
@@ -108,7 +108,7 @@ namespace AllosiusDev
             {
                 if (item.Initialized == false)
                 {
-                    Debug.Log("OnBeforeSerialize");
+                    //Debug.Log("OnBeforeSerialize");
 
                     item.IsFeedbackInstantiateObject = true;
                     item.Initialized = true;
@@ -120,7 +120,7 @@ namespace AllosiusDev
             {
                 if (item.Initialized == false)
                 {
-                    Debug.Log("OnBeforeSerialize");
+                    //Debug.Log("OnBeforeSerialize");
 
                     item.IsFeedbackChangeColorSprite = true;
                     item.Initialized = true;
@@ -132,7 +132,7 @@ namespace AllosiusDev
             {
                 if (item.Initialized == false)
                 {
-                    Debug.Log("OnBeforeSerialize");
+                    //Debug.Log("OnBeforeSerialize");
 
                     item.IsFeedbackReturnInitialColorSprite = true;
                     item.Initialized = true;
