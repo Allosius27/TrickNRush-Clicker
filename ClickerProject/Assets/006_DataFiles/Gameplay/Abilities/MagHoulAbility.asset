@@ -17,3 +17,4 @@ MonoBehaviour:
   specialFxHitFeedback: {fileID: 11400000, guid: 4a0345e48d87a9c458136493fdf5f2aa, type: 2}
   autoClickSpeedBonusPercent: 5
   bonusDuration: 3
+  fxRushPortraitFlame: {fileID: 11400000, guid: 0faf2ec8a653f8a42b9ef43ccf509306, type: 2}

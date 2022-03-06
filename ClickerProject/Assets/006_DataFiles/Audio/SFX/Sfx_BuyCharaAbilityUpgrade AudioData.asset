@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
-  m_Name: Sfx_Hit AudioData
+  m_Name: Sfx_BuyCharaAbilityUpgrade AudioData
   m_EditorClassIdentifier: 
   sound:
-    clip: {fileID: 8300000, guid: 6dfea92e15c1c5c4a8c5cdfd867c5269, type: 3}
+    clip: {fileID: 8300000, guid: 87438b2543fb1c44db45b7a781120e0b, type: 3}
     parameters:
       typeSound: 0
-      volume: 0.16
+      volume: 0.43
       volume3d: 0.26
       pitch: 1
       loop: 0

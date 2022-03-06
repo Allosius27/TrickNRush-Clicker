@@ -39,6 +39,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
     [Space]
 
     [SerializeField] private AllosiusDev.AudioData sfxUseButtonPressed;
+    [SerializeField] private AllosiusDev.AudioData sfxBuyUpgrade;
 
     #endregion
 
@@ -110,7 +111,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
         {
             Debug.Log("Buy Upgrade");
 
-            
+            AllosiusDev.AudioManager.Play(sfxBuyUpgrade.sound);
 
             PlayersController.Instance.AddCharacterAbilityUpgrade(currentCharacterAbilityUpgrade, characterPortrait);
 
