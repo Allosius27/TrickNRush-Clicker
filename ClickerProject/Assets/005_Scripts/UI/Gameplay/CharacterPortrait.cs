@@ -83,6 +83,7 @@ public class CharacterPortrait : MonoBehaviour
 
     [Space]
 
+    [SerializeField] private AllosiusDev.AudioData sfxRushActivation;
     [SerializeField] private AllosiusDev.AudioData sfxUseButtonPressed;
 
     #endregion
@@ -207,7 +208,7 @@ public class CharacterPortrait : MonoBehaviour
 
             ChangePowerBarValue(-powerValue);
 
-            
+            AllosiusDev.AudioManager.Play(sfxRushActivation.sound);
 
             StartCoroutine(LaunchAbility());
         }
