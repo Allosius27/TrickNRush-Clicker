@@ -15,7 +15,9 @@ MonoBehaviour:
   sound:
     clip: {fileID: 0}
     parameters:
+      typeSound: 0
       volume: 0
-      pitch: 0
+      volume3d: 0
+      pitch: 0.1
       loop: 0
       spacialBlend: 0

@@ -36,6 +36,10 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
 
     [SerializeField] private List<Image> upgradesUnlockedIcons = new List<Image>();
 
+    [Space]
+
+    [SerializeField] private AllosiusDev.AudioData sfxUseButtonPressed;
+
     #endregion
 
     #region Behaviour
@@ -81,6 +85,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
         textCost.text = currentCharacterAbilityUpgrade.Cost.ToString();
 
         textLevel.text = "Niveau " + level.ToString();
+        characterPortrait.levelLabel.text = textLevel.text;
 
         for (int i = 0; i < upgradesUnlockedIcons.Count; i++)
         {
@@ -99,9 +104,13 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
 
     public void OnClick()
     {
+        AllosiusDev.AudioManager.Play(sfxUseButtonPressed.sound);
+
         if (PlayersController.Instance.CurrentCandies >= currentCharacterAbilityUpgrade.Cost)
         {
             Debug.Log("Buy Upgrade");
+
+            
 
             PlayersController.Instance.AddCharacterAbilityUpgrade(currentCharacterAbilityUpgrade, characterPortrait);
 

@@ -34,6 +34,10 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     [SerializeField] private float comboHitMaxDuration = 0.5f;
 
+    [Space]
+
+    [SerializeField] private AllosiusDev.AudioData sfxHit;
+
     #endregion
 
     #region Behaviour
@@ -66,6 +70,7 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
                 {
                     Hit(currentCharacterSelected.currentDamagePerClick, enemy, currentCharacterSelected, true);
                     GameCore.Instance.InstantiateBaseFxHit(new Vector3(world.x, world.y, -1), comboHitFxTimer, comboHitMaxDuration);
+                    AllosiusDev.AudioManager.Play(sfxHit.sound);
 
                     comboHitFxTimer = 0.0f;
 

@@ -57,6 +57,7 @@ public class CharacterPortrait : MonoBehaviour
     public int currentCharacterUpgradeIndex { get; set; }
     public int currentCharacterAbilityUpgradeIndex { get; set; }
 
+
     #endregion
 
     #region UnityInspector
@@ -66,6 +67,8 @@ public class CharacterPortrait : MonoBehaviour
     [Space]
 
     [SerializeField] private GameObject activeBorder;
+
+    public TextMeshProUGUI levelLabel;
 
     [Space]
 
@@ -77,6 +80,10 @@ public class CharacterPortrait : MonoBehaviour
     [Space]
 
     [SerializeField] private Slider powerBar;
+
+    [Space]
+
+    [SerializeField] private AllosiusDev.AudioData sfxUseButtonPressed;
 
     #endregion
 
@@ -153,6 +160,8 @@ public class CharacterPortrait : MonoBehaviour
 
     public void ChangeCharacterControlled()
     {
+        AllosiusDev.AudioManager.Play(sfxUseButtonPressed.sound);
+
         GUIManager.Instance.ChangeCharacterSelected(this);
     }
 
@@ -189,11 +198,15 @@ public class CharacterPortrait : MonoBehaviour
 
     public void UsePower()
     {
+        AllosiusDev.AudioManager.Play(sfxUseButtonPressed.sound);
+
         if (canUsePower && PlayersController.Instance.canAttack)
         {
             Debug.Log(gameObject.name + " Use Power");
 
             ChangePowerBarValue(-powerValue);
+
+            
 
             StartCoroutine(LaunchAbility());
         }

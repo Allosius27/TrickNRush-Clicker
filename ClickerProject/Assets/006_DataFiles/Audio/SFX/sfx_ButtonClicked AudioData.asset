@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
-  m_Name: sfx_ButtonClicked AudioData
+  m_Name: Sfx_ButtonClicked AudioData
   m_EditorClassIdentifier: 
   sound:
     clip: {fileID: 8300000, guid: 0c53d81f22504f847823a39ab8642ab4, type: 3}

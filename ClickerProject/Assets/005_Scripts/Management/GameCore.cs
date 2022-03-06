@@ -33,6 +33,10 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     [Space]
 
+    [SerializeField] private AllosiusDev.AudioData mainThemeMusic;
+
+    [Space]
+
 
     [SerializeField] private List<EnemyData> typesEnemies = new List<EnemyData>();
 
@@ -48,6 +52,8 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     private void Start()
     {
         NewMonster();
+
+        AllosiusDev.AudioManager.Play(mainThemeMusic.sound);
 
         /*for (var i = 0; i < 1000; i++)
         {
