@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: ece7d675db4c3f84c873efdc3b2a5527
+guid: 1fca3ea799a5e0c42a55dc527ae17690
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5647234037613515326
+      213: 7249176171230866937
     second: ClickerJam_RushBigPortrait_Garner
   - first:
-      213: -7161692292744488402
+      213: -3242150460865841566
     second: ClickerJam_RushBigPortrait_Kitschie
   - first:
-      213: 7801491768141136720
+      213: -8808090599541345527
     second: ClickerJam_RushBigPortrait_MagHoul
   - first:
-      213: 8354839610863609865
+      213: -6168797797184663829
     second: ClickerJam_RushBigPortrait_Schnaps
   externalObjects: {}
   serializedVersion: 11
@@ -108,7 +108,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 787
+        width: 786
         height: 763
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cd2d88209ef0a1b0800000000000000
-      internalID: -5647234037613515326
+      spriteID: 9fd2178e15f3a9460800000000000000
+      internalID: 7249176171230866937
       vertices: []
       indices: 
       edges: []
@@ -127,51 +127,9 @@ TextureImporter:
       name: ClickerJam_RushBigPortrait_Kitschie
       rect:
         serializedVersion: 2
-        x: 783
+        x: 786
         y: 0
-        width: 787
-        height: 763
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 78, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2adf44ddce8c9c90800000000000000
-      internalID: -7161692292744488402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ClickerJam_RushBigPortrait_MagHoul
-      rect:
-        serializedVersion: 2
-        x: 1574
-        y: 0
-        width: 787
-        height: 763
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 69, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 053cf26dd67744c60800000000000000
-      internalID: 7801491768141136720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ClickerJam_RushBigPortrait_Schnaps
-      rect:
-        serializedVersion: 2
-        x: 2361
-        y: 0
-        width: 787
+        width: 786
         height: 763
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -180,8 +138,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90863e83c5a52f370800000000000000
-      internalID: 8354839610863609865
+      spriteID: 266f8bf55519103d0800000000000000
+      internalID: -3242150460865841566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClickerJam_RushBigPortrait_MagHoul
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 0
+        width: 786
+        height: 763
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90371e8544063c580800000000000000
+      internalID: -8808090599541345527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClickerJam_RushBigPortrait_Schnaps
+      rect:
+        serializedVersion: 2
+        x: 2358
+        y: 0
+        width: 786
+        height: 763
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee889f4617046aa0800000000000000
+      internalID: -6168797797184663829
       vertices: []
       indices: 
       edges: []
@@ -189,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 94ae34c95b05f714b95fe3b16c87b9ec
     internalID: 0
     vertices: []
     indices: 

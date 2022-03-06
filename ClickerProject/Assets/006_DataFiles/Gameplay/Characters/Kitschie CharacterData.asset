@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Kitschie
   portraitSprite: {fileID: 8422912202885909938, guid: 56ebe439bbb262d4aaba66182a223308, type: 3}
-  selectedPortraitSprite: {fileID: -7161692292744488402, guid: ece7d675db4c3f84c873efdc3b2a5527, type: 3}
+  selectedPortraitSprite: {fileID: -3242150460865841566, guid: 1fca3ea799a5e0c42a55dc527ae17690, type: 3}
   maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: fb2a1456f32e5bd459673ff6baf1dffa, type: 2}
   characterUpgrade: {fileID: 11400000, guid: 0d0117c8ac4491343a063cb2a289be40, type: 2}

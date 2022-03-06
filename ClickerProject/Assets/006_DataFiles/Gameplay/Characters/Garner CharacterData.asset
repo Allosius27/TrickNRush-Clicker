@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Garner
   portraitSprite: {fileID: 5587352822096433916, guid: 56ebe439bbb262d4aaba66182a223308, type: 3}
-  selectedPortraitSprite: {fileID: -5647234037613515326, guid: ece7d675db4c3f84c873efdc3b2a5527, type: 3}
+  selectedPortraitSprite: {fileID: 7249176171230866937, guid: 1fca3ea799a5e0c42a55dc527ae17690, type: 3}
   maxPowerValue: 100
   specialAbility: {fileID: 11400000, guid: fa9d0540aafcdb146a560d517c089700, type: 2}
   characterUpgrade: {fileID: 11400000, guid: 2710b079f7587934081573103c763ebf, type: 2}
