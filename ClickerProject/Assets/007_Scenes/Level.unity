@@ -1056,6 +1056,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1920622544}
     m_Modifications:
+    - target: {fileID: 3446162887234776212, guid: bbff192309a848a479d7bba841f877fa, type: 3}
+      propertyPath: typesEnemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446162887234776212, guid: bbff192309a848a479d7bba841f877fa, type: 3}
+      propertyPath: typesEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: eee4ebf727b89a1498540f35781f32d5, type: 2}
     - target: {fileID: 6997781850461166566, guid: bbff192309a848a479d7bba841f877fa, type: 3}
       propertyPath: m_Name
       value: GameCore
