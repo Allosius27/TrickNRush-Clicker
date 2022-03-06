@@ -9,7 +9,7 @@ public class CreditsMenu : MonoBehaviour
 {
     public void MainMenuButton()
     {
-        SceneLoader.Instance.ChangeScene(Scenes.MainMenu);
+        //SceneLoader.Instance.ChangeScene(Scenes.MainMenu);
     }
 
     public void QuitButton()

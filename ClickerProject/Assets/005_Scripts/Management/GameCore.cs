@@ -8,6 +8,9 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 {
     #region Fields
 
+    private Vector3 baseHitFxScale = Vector3.one;
+    private Vector3 currentHitFxScale = Vector3.one;
+
     #endregion
 
     #region Properties
@@ -29,6 +32,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     [SerializeField] private AllosiusDev.FeedbacksData fxGoldFeedback;
 
     [Space]
+
 
     [SerializeField] private List<EnemyData> typesEnemies = new List<EnemyData>();
 
@@ -52,9 +56,14 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         }*/
     }
 
-    public void InstantiateBaseFxHit(Vector3 _target)
+    public void InstantiateBaseFxHit(Vector3 _target, float _comboHitValue, float _maxComboHitValue)
     {
         GameObject _fxHit = Instantiate(prefabBaseFxHit, _target, Quaternion.identity);
+        if (_comboHitValue >= _maxComboHitValue)
+        {
+            currentHitFxScale = baseHitFxScale;
+        }
+        currentHitFxScale = _fxHit.GetComponent<HitFxInstantiate>().SetFxObjectsScale(currentHitFxScale);
     }
 
     public void NewMonster()

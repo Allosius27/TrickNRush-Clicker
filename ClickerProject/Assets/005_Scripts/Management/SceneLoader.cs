@@ -13,10 +13,10 @@ public class SceneLoader : AllosiusDev.Singleton<SceneLoader>
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == (int)(object)Scenes.BootScene)
+        /*if (SceneManager.GetActiveScene().buildIndex == (int)(object)Scenes.BootScene)
         {
             ChangeScene(Scenes.MainMenu);
-        }
+        }*/
     }
 
     public void ChangeScene(System.Enum _enum)

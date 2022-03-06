@@ -11,6 +11,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
     private int currentGold;
     private int currentCandies;
 
+    private float comboHitFxTimer = 0.0f;
+
     #endregion
 
     #region Properties
@@ -30,6 +32,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     [SerializeField] private PlayerData playerData;
 
+    [SerializeField] private float comboHitMaxDuration = 0.5f;
+
     #endregion
 
     #region Behaviour
@@ -43,6 +47,11 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     private void Update()
     {
+        if(comboHitFxTimer < comboHitMaxDuration)
+        {
+            comboHitFxTimer += Time.deltaTime;
+        }
+
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             Vector3 world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -56,7 +65,10 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
                 if (enemy != null)
                 {
                     Hit(currentCharacterSelected.currentDamagePerClick, enemy, currentCharacterSelected, true);
-                    GameCore.Instance.InstantiateBaseFxHit(new Vector3(world.x, world.y, -1));
+                    GameCore.Instance.InstantiateBaseFxHit(new Vector3(world.x, world.y, -1), comboHitFxTimer, comboHitMaxDuration);
+
+                    comboHitFxTimer = 0.0f;
+
                 }
             }
         }
@@ -87,10 +99,10 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         GameObject feedback = Instantiate(GameCore.Instance.PrefabHitPoint, enemy.LocalCanvas.transform, false);
         feedback.transform.localPosition = Vector3.zero;
         feedback.transform.localPosition = UnityEngine.Random.insideUnitCircle * 200;
-        feedback.transform.DOLocalMoveY(500f, 1.25f);
+        feedback.transform.DOLocalMoveY(500f, 2f);
         feedback.GetComponent<TextMeshProUGUI>().text = "- " + damage.ToString();
-        feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 1.25f);
-        Destroy(feedback, 1.3f);
+        feedback.GetComponent<TextMeshProUGUI>().DOFade(0, 2f);
+        Destroy(feedback, 2.1f);
 
         ChangeCandiesAmount((int)(attackCharacter.currentCandiesObtainedPerClick * attackCharacter.currentBonusCandiesObtained));
         
@@ -149,6 +161,10 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
         currentCandies += _amount;
         GUIManager.Instance.UpdateCandiesUI();
     }
+
+    #region Saving
+
+    #endregion
 
     #endregion
 }

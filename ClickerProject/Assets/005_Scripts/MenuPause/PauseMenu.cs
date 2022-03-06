@@ -76,6 +76,11 @@ public class PauseMenu : MonoBehaviour
         canPause = false;
         Resume();
         AllosiusDev.AudioManager.StopAllMusics();
-        SceneLoader.Instance.ActiveLoadingScreen(mainMenuSceneData, 1.0f);
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+        Application.Quit();
+        //SceneLoader.Instance.ActiveLoadingScreen(mainMenuSceneData, 1.0f);
     }
 }

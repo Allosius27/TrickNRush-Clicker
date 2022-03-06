@@ -16,6 +16,9 @@ public class EnemyVisual : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    [SerializeField] private GameObject hurtExpressionObject;
+    [SerializeField] private GameObject neutralExpressionObject;
+
     #endregion
 
     #region Behaviour
@@ -30,6 +33,18 @@ public class EnemyVisual : MonoBehaviour
         enemy.InstantiateDeathFx(this.gameObject);
 
         Destroy(gameObject, 0.25f);
+    }
+
+    public void ActiveHurtExpression()
+    {
+        hurtExpressionObject.SetActive(true);
+        neutralExpressionObject.SetActive(false);
+    }
+
+    public void ActiveNeutralExpression()
+    {
+        hurtExpressionObject.SetActive(false);
+        neutralExpressionObject.SetActive(true);
     }
 
     #endregion
