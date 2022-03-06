@@ -151,6 +151,7 @@ public class CharacterPortrait : MonoBehaviour
         
         characterData.specialAbility.Attack(this);
         StartCoroutine(characterData.specialAbility.SpecialFxHitFeedback.CoroutineExecute(enemy.gameObject));
+        AllosiusDev.AudioManager.Play(PlayersController.Instance.SfxHit.sound);
 
         characterData.specialAbility.ApplySpecialEffect(this);
         StartCoroutine(characterData.specialAbility.SpecialEffectDuration(this));

@@ -154,7 +154,7 @@ namespace AllosiusDev
             }
         }
 
-        public void SetTarget(Transform _target)
+        public void SetTarget(Vector3 _target)
         {
             Debug.Log("Set Target");
             foreach (var item in feedbacks)

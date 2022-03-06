@@ -24,6 +24,8 @@ public class PlayersController : AllosiusDev.Singleton<PlayersController>
 
     public bool canAttack { get; set; }
 
+    public AllosiusDev.AudioData SfxHit => sfxHit;
+
     #endregion
 
     #region UnityInspector

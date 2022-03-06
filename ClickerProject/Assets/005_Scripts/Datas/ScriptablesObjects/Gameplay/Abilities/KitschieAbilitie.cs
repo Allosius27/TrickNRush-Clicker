@@ -9,6 +9,8 @@ public class KitschieAbilitie : SpecialAbility
 
     public KitschieAbilityUpgrade kitschieAbilityUpgrade { get; protected set; }
 
+    public float BonusDuration => bonusDuration;
+
     public float currentCandiesBonusMultiplierUpgrade { get; protected set; }
     public float currentGoldBonusMultiplierUpgrade { get; protected set; }
 
@@ -22,6 +24,7 @@ public class KitschieAbilitie : SpecialAbility
     [SerializeField] private float goldBonusMultiplier;
 
     [SerializeField] private float bonusDuration = 3.0f;
+    [SerializeField] private AllosiusDev.FeedbacksData fxRushPortraitFlame;
 
     #endregion
 
@@ -37,6 +40,11 @@ public class KitschieAbilitie : SpecialAbility
 
         float _goldBonus = goldBonusMultiplier + currentGoldBonusMultiplierUpgrade;
         character.currentBonusGoldObtained = _goldBonus;
+
+        var screenToWorldPosition = Camera.main.ScreenToWorldPoint(character.transform.position);
+        screenToWorldPosition = new Vector3(screenToWorldPosition.x, screenToWorldPosition.y, -1);
+        fxRushPortraitFlame.SetTarget(screenToWorldPosition);
+        GameCore.Instance.InstantiateFeedbacksData(fxRushPortraitFlame, character.gameObject);
     }
 
     public override IEnumerator SpecialEffectDuration(CharacterPortrait character)

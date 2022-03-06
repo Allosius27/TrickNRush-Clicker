@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aa7626fd3d23d44e8e847b75899cfa6, type: 3}
-  m_Name: InstantiateFxEnemyDeathFeedbacksData
+  m_Name: InstantiateRushPortraitFxFlameKitschie FeedbacksData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -31,24 +31,8 @@ MonoBehaviour:
       audioData: {fileID: 0}
     feedbackInstantiateObject:
       IsActive: 1
-      objectToInstantiate: {fileID: 3599826945242012776, guid: 124fb94af43d4ee4db6090ae7755252f, type: 3}
+      objectToInstantiate: {fileID: 2554061722978224524, guid: e8cbd8d7ca7e7ad40ada1b26ca15fff0, type: 3}
       objectPositionOffset: {x: 0, y: 0, z: -1}
-    feedbackChangeColorSprite:
-      IsActive: 1
-      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-    feedbackReturnInitialColorSprite:
-      IsActive: 1
-  - Type: 2
-    feedbackWait:
-      IsActive: 1
-      waitTime: 0
-    feedbackPlaySound:
-      IsActive: 1
-      audioData: {fileID: 11400000, guid: 785795d388ba57142bb07d567fee321b, type: 2}
-    feedbackInstantiateObject:
-      IsActive: 1
-      objectToInstantiate: {fileID: 0}
-      objectPositionOffset: {x: 0, y: 0, z: 0}
     feedbackChangeColorSprite:
       IsActive: 1
       newSpriteColor: {r: 0, g: 0, b: 0, a: 0}

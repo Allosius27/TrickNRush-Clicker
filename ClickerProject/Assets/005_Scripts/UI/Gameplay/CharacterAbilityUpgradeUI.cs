@@ -85,7 +85,7 @@ public class CharacterAbilityUpgradeUI : MonoBehaviour
         textCost.text = currentCharacterAbilityUpgrade.Cost.ToString();
 
         textLevel.text = "Niveau " + level.ToString();
-        characterPortrait.levelLabel.text = textLevel.text;
+        
 
         for (int i = 0; i < upgradesUnlockedIcons.Count; i++)
         {

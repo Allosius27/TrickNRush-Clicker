@@ -18,3 +18,4 @@ MonoBehaviour:
   candiesBonusMultiplier: 1.4
   goldBonusMultiplier: 1.4
   bonusDuration: 3
+  fxRushPortraitFlame: {fileID: 11400000, guid: e92e919b55fffdb4bb23bd7b16a96f83, type: 2}

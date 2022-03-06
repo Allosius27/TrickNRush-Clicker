@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: MainThemeMusic AudioData
   m_EditorClassIdentifier: 
   sound:
-    clip: {fileID: 8300000, guid: bca8c94adf648684790ace7b7effc8f4, type: 3}
+    clip: {fileID: 8300000, guid: 52328ebccf0a807449a6efaad93018ff, type: 3}
     parameters:
       typeSound: 1
       volume: 0.053
+      volume3d: 0
       pitch: 1
       loop: 1
       spacialBlend: 0

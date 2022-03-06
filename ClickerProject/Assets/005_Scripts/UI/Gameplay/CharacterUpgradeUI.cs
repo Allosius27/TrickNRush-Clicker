@@ -78,6 +78,7 @@ public class CharacterUpgradeUI : MonoBehaviour
         powerCostDescription.text = "Vitesse Régénération Rush : " + characterPortrait.currentPowerObtainedPerClick;
 
         textCost.text = currentCharacterUpgrade.Cost.ToString();
+        characterPortrait.levelLabel.text = textLevel.text;
 
         textLevel.text = "Niveau " + level.ToString();
 

@@ -9,6 +9,8 @@ public class MagHoulAbilitie : SpecialAbility
 
     public MagHoulAbilityUpgrade magHoulAbilityUpgrade { get; protected set; }
 
+    public float BonusDuration => bonusDuration;
+
     public int currentAutoClickSpeedBonusPercentUpgrade { get; protected set; }
 
     public float currentBonusDurationUpgrade { get; protected set; }
@@ -22,6 +24,8 @@ public class MagHoulAbilitie : SpecialAbility
 
     [SerializeField] private float bonusDuration = 3.0f;
 
+    [SerializeField] private AllosiusDev.FeedbacksData fxRushPortraitFlame;
+
     #endregion
 
     #region Behaviour
@@ -32,6 +36,11 @@ public class MagHoulAbilitie : SpecialAbility
 
         int _autoClickBonus = autoClickSpeedBonusPercent + currentAutoClickSpeedBonusPercentUpgrade;
         character.currentBonusIntervalAutoClickPercent = _autoClickBonus;
+
+        var screenToWorldPosition = Camera.main.ScreenToWorldPoint(character.transform.position);
+        screenToWorldPosition = new Vector3(screenToWorldPosition.x, screenToWorldPosition.y, -1);
+        fxRushPortraitFlame.SetTarget(screenToWorldPosition);
+        GameCore.Instance.InstantiateFeedbacksData(fxRushPortraitFlame, character.gameObject);
     }
 
     public override IEnumerator SpecialEffectDuration(CharacterPortrait character)

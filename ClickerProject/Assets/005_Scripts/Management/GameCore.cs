@@ -89,6 +89,10 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
         EntitiesManager.Instance.Enemy.SetEnemy(typesEnemies[_currentMonster]);
     }
 
+    public void InstantiateFeedbacksData(AllosiusDev.FeedbacksData feedbacksData, GameObject _owner)
+    {
+        StartCoroutine(feedbacksData.CoroutineExecute(_owner));
+    }
     
     #endregion
 }
