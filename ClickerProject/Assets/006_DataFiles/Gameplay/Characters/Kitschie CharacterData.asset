@@ -16,6 +16,7 @@ MonoBehaviour:
   portraitSprite: {fileID: 8422912202885909938, guid: 56ebe439bbb262d4aaba66182a223308, type: 3}
   selectedPortraitSprite: {fileID: -3242150460865841566, guid: 1fca3ea799a5e0c42a55dc527ae17690, type: 3}
   maxPowerValue: 100
+  prefabBaseFxHit: {fileID: 3107391800451196978, guid: 48e2893ed6518cb46aea0636c722d6e9, type: 3}
   specialAbility: {fileID: 11400000, guid: fb2a1456f32e5bd459673ff6baf1dffa, type: 2}
   characterUpgrade: {fileID: 11400000, guid: 0d0117c8ac4491343a063cb2a289be40, type: 2}
   abilityUpgrade: {fileID: 11400000, guid: 8d34ed4fd91c49f419156c399336dc77, type: 2}

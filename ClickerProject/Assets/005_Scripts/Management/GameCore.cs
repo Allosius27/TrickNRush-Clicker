@@ -16,7 +16,6 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     #region Properties
 
     public GameObject PrefabHitPoint => prefabHitPoint;
-    public GameObject PrefabBaseFxHit => prefabBaseFxHit;
 
     public AllosiusDev.FeedbacksData FxCandiesFeedback => fxCandiesFeedback;
     public AllosiusDev.FeedbacksData FxGoldFeedback => fxGoldFeedback;
@@ -26,7 +25,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
     #region UnityInspector
 
     [SerializeField] private GameObject prefabHitPoint;
-    [SerializeField] private GameObject prefabBaseFxHit;
+    
 
     [SerializeField] private AllosiusDev.FeedbacksData fxCandiesFeedback;
     [SerializeField] private AllosiusDev.FeedbacksData fxGoldFeedback;
@@ -64,7 +63,7 @@ public class GameCore : AllosiusDev.Singleton<GameCore>
 
     public void InstantiateBaseFxHit(Vector3 _target, float _comboHitValue, float _maxComboHitValue)
     {
-        GameObject _fxHit = Instantiate(prefabBaseFxHit, _target, Quaternion.identity);
+        GameObject _fxHit = Instantiate(PlayersController.Instance.currentCharacterSelected.characterData.prefabBaseFxHit, _target, Quaternion.identity);
         if (_comboHitValue >= _maxComboHitValue)
         {
             currentHitFxScale = baseHitFxScale;

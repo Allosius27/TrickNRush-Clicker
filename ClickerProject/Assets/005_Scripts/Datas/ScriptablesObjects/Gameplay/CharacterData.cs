@@ -15,6 +15,7 @@ public class CharacterData : ScriptableObject
     [Space]
 
     public float maxPowerValue;
+    public GameObject prefabBaseFxHit;
 
     [Space]
 
